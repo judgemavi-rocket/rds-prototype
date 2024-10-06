@@ -28,8 +28,13 @@ yarn add @tiny-bits/react-dialog
 
 Here's a basic example of how to use the dialog component:
 
-```jsx
-import { Dialog, DialogContent, DialogTrigger, DialogClose } from '@tiny-bits/react-dialog';
+```tsx
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+  DialogClose,
+} from '@tiny-bits/react-dialog';
 
 function App() {
   return (
@@ -49,9 +54,14 @@ function App() {
 
 You can control the dialog's open state externally:
 
-```jsx
+```tsx
 import { useState } from 'react';
-import { Dialog, DialogContent, DialogTrigger, DialogClose } from '@tiny-bits/react-dialog';
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+  DialogClose,
+} from '@tiny-bits/react-dialog';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -73,10 +83,8 @@ function App() {
 
 To add a backdrop to the dialog:
 
-```jsx
-<Dialog backdrop>
-  {/* Dialog content */}
-</Dialog>
+```tsx
+<Dialog backdrop>{/* Dialog content */}</Dialog>
 ```
 
 ## API
@@ -86,6 +94,7 @@ To add a backdrop to the dialog:
 Main component that wraps the entire dialog structure.
 
 Props:
+
 - `children`: ReactNode
 - `open?`: boolean (default: false)
 - `onOpenChange?`: (open: boolean) => void
@@ -96,6 +105,7 @@ Props:
 The content of the dialog.
 
 Props:
+
 - Extends `DialogHTMLAttributes<HTMLDialogElement>`
 
 ### DialogTrigger
@@ -103,6 +113,7 @@ Props:
 A button to open the dialog.
 
 Props:
+
 - Extends `ButtonHTMLAttributes<HTMLButtonElement>`
 
 ### DialogClose
@@ -110,14 +121,33 @@ Props:
 A button to close the dialog.
 
 Props:
+
 - Extends `ButtonHTMLAttributes<HTMLButtonElement>`
 
 ## Styling
 
 This is a headless component so you can style it however you want. Some default styles are provided and can be used by importing styles.css.
 
-```jsx
+```tsx
 import '@tiny-bits/react-dialog/styles.css';
+```
+
+Example usage with Tailwind CSS:
+
+```tsx
+<Dialog>
+  <DialogTrigger className="rounded-md border p-2">
+    Click me
+  </DialogTrigger>
+  <DialogContent className="self-center rounded-md shadow-lg">
+    <div className="flex flex-col">
+      Hello world!
+      <div className="flex justify-end">
+        <DialogClose className="p-2 border rounded-md">Bye</DialogClose>
+      </div>
+    </div>
+  </DialogContent>
+</Dialog>
 ```
 
 ## Browser Support
@@ -131,3 +161,4 @@ This component uses the native `<dialog>` element, which provides built-in acces
 ## License
 
 [MIT License](LICENSE)
+```
