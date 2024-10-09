@@ -1,6 +1,6 @@
 {
   "name": "@tiny-bits/react-dialog",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -34,5 +34,16 @@
   },
   "peerDependencies": {
     "react": "^18.2.0"
-  }
+  },
+  "keywords": [
+    "react",
+    "dialog",
+    "modal",
+    "accessibility",
+    "typescript",
+    "headless",
+    "component",
+    "tiny-bits",
+    "composable"
+  ]
 }

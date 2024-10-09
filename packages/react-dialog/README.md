@@ -5,7 +5,7 @@ Zero dependency, accessible, and composable React dialog component built on top 
 ## Features
 
 - Fully controlled or uncontrolled usage
-- Backdrop option for modal behavior
+- Modal option for modal behavior with backdrop added
 - Accessible, using native `<dialog>` element
 - Composable API with separate trigger and close buttons
 - TypeScript support
@@ -79,12 +79,12 @@ function App() {
 }
 ```
 
-### With Backdrop
+### Usage as a modal
 
-To add a backdrop to the dialog:
+To use dialog as modal:
 
 ```tsx
-<Dialog backdrop>{/* Dialog content */}</Dialog>
+<Dialog modal>{/* Dialog content */}</Dialog>
 ```
 
 ## API
@@ -98,7 +98,7 @@ Props:
 - `children`: ReactNode
 - `open?`: boolean (default: false)
 - `onOpenChange?`: (open: boolean) => void
-- `backdrop?`: boolean (default: false)
+- `modal?`: boolean (default: false)
 
 ### DialogContent
 

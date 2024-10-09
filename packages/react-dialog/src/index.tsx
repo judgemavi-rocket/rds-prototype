@@ -18,27 +18,28 @@ type DialogContextType = {
   open: boolean;
   openDialog: () => void;
   closeDialog: () => void;
-  backdrop?: boolean;
+  modal: boolean;
 };
 
 const DialogContext = createContext<DialogContextType>({
   open: false,
   openDialog: () => {},
   closeDialog: () => {},
+  modal: true,
 });
 
 type ProviderProps = {
   children: ReactNode;
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  backdrop?: boolean;
+  modal: boolean;
 };
 
 const DialogProvider = ({
   children,
   open,
   onOpenChange,
-  backdrop = false,
+  modal,
 }: ProviderProps) => {
   return (
     <DialogContext.Provider
@@ -46,7 +47,7 @@ const DialogProvider = ({
         open,
         openDialog: () => onOpenChange(true),
         closeDialog: () => onOpenChange(false),
-        backdrop,
+        modal,
       }}
     >
       {children}
@@ -66,14 +67,14 @@ type DialogProps = {
   children: ReactNode;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
-  backdrop?: boolean;
+  modal?: boolean;
 };
 
 const Dialog = ({
   children,
   open = false,
   onOpenChange,
-  backdrop = false,
+  modal = false,
 }: DialogProps) => {
   const [isOpen, setIsOpen] = useState(open);
 
@@ -85,11 +86,7 @@ const Dialog = ({
   };
 
   return (
-    <DialogProvider
-      open={isOpen}
-      onOpenChange={handleOpenChange}
-      backdrop={backdrop}
-    >
+    <DialogProvider open={isOpen} onOpenChange={handleOpenChange} modal={modal}>
       {children}
     </DialogProvider>
   );
@@ -100,7 +97,7 @@ type DialogContentProps = PropsWithoutRef<
 >;
 
 const DialogContent = ({ className, ...props }: DialogContentProps) => {
-  const { open, closeDialog, backdrop } = useDialog();
+  const { open, closeDialog, modal } = useDialog();
 
   const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -112,10 +109,19 @@ const DialogContent = ({ className, ...props }: DialogContentProps) => {
 
     dialog.addEventListener('close', closeDialog);
 
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && !modal) {
+        closeDialog();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
     return () => {
       dialog.removeEventListener('close', closeDialog);
+      document.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [closeDialog, modal]);
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -123,18 +129,18 @@ const DialogContent = ({ className, ...props }: DialogContentProps) => {
       return;
     }
     if (open) {
-      dialog.showModal();
+      modal ? dialog.showModal() : dialog.show();
     } else {
       dialog.close();
     }
-  }, [open]);
+  }, [open, modal]);
 
   return (
     <dialog
       {...props}
       className={mergeClasses(
         'tiny-bits-dialog',
-        backdrop && 'tiny-bits-backdrop',
+        modal && 'tiny-bits-modal',
         className
       )}
       ref={dialogRef}
@@ -146,28 +152,14 @@ type DialogTriggerProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 const DialogTrigger = (props: DialogTriggerProps) => {
   const { openDialog } = useDialog();
-  return (
-    <button
-      aria-label='open dialog'
-      type='button'
-      {...props}
-      onClick={openDialog}
-    />
-  );
+  return <button type='button' {...props} onClick={openDialog} />;
 };
 
 type DialogCloseProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 const DialogClose = (props: DialogCloseProps) => {
   const { closeDialog } = useDialog();
-  return (
-    <button
-      aria-label='close dialog'
-      type='button'
-      {...props}
-      onClick={closeDialog}
-    />
-  );
+  return <button type='button' {...props} onClick={closeDialog} />;
 };
 
 export { Dialog, DialogContent, DialogTrigger, DialogClose };

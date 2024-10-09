@@ -10,7 +10,7 @@
   padding: 16px 8px;
 }
 
-.tiny-bits-dialog.tiny-bits-backdrop {
+.tiny-bits-dialog.tiny-bits-modal {
   &::backdrop {
     background-color: black;
     opacity: 0.5;
