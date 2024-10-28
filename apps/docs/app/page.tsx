@@ -10,10 +10,17 @@ export default function Home() {
   return (
     <div>
       <main>
-        <Dialog backdrop>
+        <Dialog>
           <DialogTrigger>Open Dialog</DialogTrigger>
           <DialogContent>
             <p>Hello world</p>
+            <DialogClose>Close</DialogClose>
+          </DialogContent>
+        </Dialog>
+        <Dialog modal>
+          <DialogTrigger>Open modal</DialogTrigger>
+          <DialogContent>
+            <p>Hello world modal</p>
             <DialogClose>Close</DialogClose>
           </DialogContent>
         </Dialog>

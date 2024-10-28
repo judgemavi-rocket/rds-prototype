@@ -11,12 +11,12 @@
   "dependencies": {
     "next": "14.2.6",
     "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react-dom": "18.3.1",
+    "@tiny-bits/react-dialog": "workspace:*"
   },
   "devDependencies": {
     "@tiny-bits/eslint-config": "workspace:*",
     "@tiny-bits/typescript-config": "workspace:*",
-    "@tiny-bits/react-dialog": "workspace:*",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
