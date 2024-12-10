@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   ButtonHTMLAttributes,
@@ -7,12 +7,12 @@ import {
   useContext,
   useEffect,
   useRef,
-} from 'react';
-import { useState } from 'react';
-import { ReactNode } from 'react';
-import { createContext } from 'react';
-import { mergeClasses } from '@tiny-bits/utils';
-import './index.module.css';
+  useState,
+  ReactNode,
+  createContext,
+} from "react";
+import { mergeClasses } from "@tiny-bits/utils";
+import "./index.module.css";
 
 type DialogContextType = {
   open: boolean;
@@ -58,7 +58,7 @@ const DialogProvider = ({
 const useDialog = () => {
   const context = useContext(DialogContext);
   if (Object.keys(context).length === 0) {
-    throw new Error('useDialog must be used within a DialogProvider');
+    throw new Error("useDialog must be used within a DialogProvider");
   }
   return context;
 };
@@ -107,19 +107,19 @@ const DialogContent = ({ className, ...props }: DialogContentProps) => {
       return;
     }
 
-    dialog.addEventListener('close', closeDialog);
+    dialog.addEventListener("close", closeDialog);
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && !modal) {
+      if (event.key === "Escape" && !modal) {
         closeDialog();
       }
     };
 
-    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      dialog.removeEventListener('close', closeDialog);
-      document.removeEventListener('keydown', handleKeyDown);
+      dialog.removeEventListener("close", closeDialog);
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }, [closeDialog, modal]);
 
@@ -139,8 +139,8 @@ const DialogContent = ({ className, ...props }: DialogContentProps) => {
     <dialog
       {...props}
       className={mergeClasses(
-        'tiny-bits-dialog',
-        modal && 'tiny-bits-modal',
+        "tiny-bits-dialog",
+        modal && "tiny-bits-modal",
         className
       )}
       ref={dialogRef}
@@ -152,14 +152,14 @@ type DialogTriggerProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 const DialogTrigger = (props: DialogTriggerProps) => {
   const { openDialog } = useDialog();
-  return <button type='button' {...props} onClick={openDialog} />;
+  return <button type="button" {...props} onClick={openDialog} />;
 };
 
 type DialogCloseProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 const DialogClose = (props: DialogCloseProps) => {
   const { closeDialog } = useDialog();
-  return <button type='button' {...props} onClick={closeDialog} />;
+  return <button type="button" {...props} onClick={closeDialog} />;
 };
 
 export { Dialog, DialogContent, DialogTrigger, DialogClose };

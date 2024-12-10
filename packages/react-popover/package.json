@@ -1,6 +1,6 @@
 {
-  "name": "@tiny-bits/react-dialog",
-  "version": "1.0.6",
+  "name": "@tiny-bits/react-popover",
+  "version": "1.0.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -11,8 +11,7 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
-    },
-    "./styles.css": "./dist/index.css"
+    }
   },
   "main": "./dist/index.js",
   "scripts": {
@@ -37,8 +36,7 @@
   },
   "keywords": [
     "react",
-    "dialog",
-    "modal",
+    "popover",
     "accessibility",
     "typescript",
     "headless",

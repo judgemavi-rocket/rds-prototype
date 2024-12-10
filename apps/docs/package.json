@@ -9,19 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "14.2.6",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "@tiny-bits/react-dialog": "workspace:*"
+    "@tiny-bits/react-dialog": "workspace:*",
+    "@tiny-bits/react-popover": "workspace:*",
+    "next": "15.0.4",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
   },
   "devDependencies": {
     "@tiny-bits/eslint-config": "workspace:*",
     "@tiny-bits/typescript-config": "workspace:*",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.6",
-    "typescript": "^5"
+    "@types/node": "^22.10.1",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.1",
+    "eslint": "^9.16.0",
+    "eslint-config-next": "15.0.4",
+    "typescript": "^5.7.2"
   }
 }
