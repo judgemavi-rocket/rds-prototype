@@ -31,7 +31,6 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-  PopoverClose,
 } from "@tiny-bits/react-popover";
 
 function App() {
