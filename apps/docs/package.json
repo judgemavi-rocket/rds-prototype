@@ -11,18 +11,18 @@
   "dependencies": {
     "@tiny-bits/react-dialog": "workspace:*",
     "@tiny-bits/react-popover": "workspace:*",
-    "next": "15.0.4",
+    "next": "15.2.4",
     "react": "19.0.0",
     "react-dom": "19.0.0"
   },
   "devDependencies": {
     "@tiny-bits/eslint-config": "workspace:*",
     "@tiny-bits/typescript-config": "workspace:*",
-    "@types/node": "^22.10.1",
-    "@types/react": "^19.0.1",
-    "@types/react-dom": "^19.0.1",
-    "eslint": "^9.16.0",
-    "eslint-config-next": "15.0.4",
-    "typescript": "^5.7.2"
+    "@types/node": "^22.13.13",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
+    "eslint": "^9.23.0",
+    "eslint-config-next": "15.2.4",
+    "typescript": "^5.8.2"
   }
 }
