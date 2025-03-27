@@ -115,11 +115,26 @@ const DialogContent = ({ className, ...props }: DialogContentProps) => {
       }
     };
 
+    const handleClick = (event: MouseEvent) => {
+      const rect = dialog.getBoundingClientRect();
+      const isInDialog = (
+        rect.top <= event.clientY &&
+        event.clientY <= rect.top + rect.height &&
+        rect.left <= event.clientX &&
+        event.clientX <= rect.left + rect.width
+      );
+      if (!isInDialog) {
+        closeDialog();
+      }
+    };
+
     document.addEventListener("keydown", handleKeyDown);
+    dialog.addEventListener("click", handleClick);
 
     return () => {
       dialog.removeEventListener("close", closeDialog);
       document.removeEventListener("keydown", handleKeyDown);
+      dialog.removeEventListener("click", handleClick);
     };
   }, [closeDialog, modal]);
 
