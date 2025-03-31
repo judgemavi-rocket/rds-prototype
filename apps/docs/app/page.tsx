@@ -1,3 +1,4 @@
+import { Button } from "@tiny-bits/react-button";
 import {
   Dialog,
   DialogClose,
@@ -15,6 +16,8 @@ export default function Home() {
   return (
     <div>
       <main>
+        <Button>Button</Button>
+        <Button disabled>Button</Button>
         <Dialog>
           <DialogTrigger>Open Dialog</DialogTrigger>
           <DialogContent>
@@ -34,7 +37,7 @@ export default function Home() {
           <PopoverContent>
             <h2>Popover Title</h2>
             <p>This is the popover content.</p>
-            <input type="text" autoFocus/>
+            <input type="text" autoFocus />
             <button>Submit</button>
           </PopoverContent>
         </Popover>

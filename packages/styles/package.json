@@ -1,0 +1,7 @@
+{
+  "name": "@tiny-bits/styles",
+  "version": "1.0.0",
+  "exports": {
+    "./button.css": "./src/button.css"
+  }
+}
