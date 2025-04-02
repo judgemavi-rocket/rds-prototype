@@ -1,0 +1,19 @@
+---
+title: Dialog
+description: A window overlaid on either the primary windo wor another dialog window, rendering the content underneath inert.
+---
+
+Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
+Writing a good guide requires thinking about what your users are trying to do.
+
+## Further reading
+
+import { DialogDemoComponent as DialogReact } from "/src/components/react/dialog-demo";
+import { Code } from "@astrojs/starlight/components";
+import dialogReactSource from "/src/components/react/dialog-demo.tsx?raw";
+import { Card } from "@astrojs/starlight/components";
+
+
+<DialogReact client:load />
+
+<Code code={`${dialogReactSource}`} lang="ts" />

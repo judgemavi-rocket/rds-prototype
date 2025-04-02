@@ -1,0 +1,17 @@
+---
+title: Dialog
+description: A window overlaid on either the primary windo wor another dialog window, rendering the content underneath inert.
+---
+
+Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
+Writing a good guide requires thinking about what your users are trying to do.
+
+## Further reading
+
+import { DialogDemoComponent } from "/src/components/angular/dialog-demo";
+import { Code } from "@astrojs/starlight/components";
+import dialogAngularSource from "/src/components/angular/dialog-demo.ts?raw";
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+
+<DialogDemoComponent client:load />
+<Code code={`${dialogAngularSource}`} lang="ts" />

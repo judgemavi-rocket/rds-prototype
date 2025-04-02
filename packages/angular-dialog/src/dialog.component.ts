@@ -1,15 +1,22 @@
-import { Component, Input, Output, EventEmitter, OnInit, OnChanges } from '@angular/core';
-import { DialogContextService } from './dialog-context.service';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  OnInit,
+  OnChanges,
+} from "@angular/core";
+import { DialogContextService } from "./dialog-context.service";
 
 @Component({
-  selector: 'tb-dialog',
+  selector: "tb-dialog",
   standalone: true,
   template: `<ng-content></ng-content>`,
-  providers: [DialogContextService]
+  providers: [DialogContextService],
 })
 export class DialogComponent implements OnInit, OnChanges {
   @Input() open = false;
-  @Input() modal = false;
+  @Input() modal = true;
   @Output() openChange = new EventEmitter<boolean>();
 
   constructor(private dialogContext: DialogContextService) {}
@@ -17,7 +24,7 @@ export class DialogComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.dialogContext.setOpen(this.open);
     this.dialogContext.setModal(this.modal);
-    this.dialogContext.openChange.subscribe(open => {
+    this.dialogContext.openChange.subscribe((open) => {
       this.openChange.emit(open);
     });
   }
@@ -26,4 +33,4 @@ export class DialogComponent implements OnInit, OnChanges {
     this.dialogContext.setOpen(this.open);
     this.dialogContext.setModal(this.modal);
   }
-} 
+}
