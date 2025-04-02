@@ -4,7 +4,7 @@ import {
   DialogContentComponent,
   DialogTriggerDirective,
   DialogCloseDirective,
-} from "@tiny-bits/angular-dialog";
+} from "@rds/angular-dialog";
 
 @Component({
   selector: "app-dialog-demo",

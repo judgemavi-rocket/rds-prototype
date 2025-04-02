@@ -1,5 +1,5 @@
 {
-  "name": "tiny-bits",
+  "name": "rds",
   "private": true,
   "scripts": {
     "build": "turbo build",

@@ -3,7 +3,7 @@ import {
   DialogClose,
   DialogContent,
   DialogTrigger,
-} from "@tiny-bits/react-dialog";
+} from "@rds/react-dialog";
 
 export function DialogDemoComponent() {
   return (

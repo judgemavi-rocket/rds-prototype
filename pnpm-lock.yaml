@@ -62,15 +62,15 @@ importers:
       '@astrojs/starlight':
         specifier: ^0.32.5
         version: 0.32.5(astro@5.5.6)
+      '@rds/angular-dialog':
+        specifier: workspace:*
+        version: link:../../packages/angular/dialog
+      '@rds/react-dialog':
+        specifier: workspace:*
+        version: link:../../packages/react/dialog
       '@tailwindcss/vite':
         specifier: ^4.1.1
         version: 4.1.1(vite@6.2.4)
-      '@tiny-bits/angular-dialog':
-        specifier: workspace:*
-        version: link:../../packages/angular-dialog
-      '@tiny-bits/react-dialog':
-        specifier: workspace:*
-        version: link:../../packages/react-dialog
       '@types/react':
         specifier: ^19.1.0
         version: 19.1.0
@@ -108,7 +108,7 @@ importers:
         specifier: ^0.15.0
         version: 0.15.0
 
-  packages/angular-dialog:
+  packages/angular/dialog:
     dependencies:
       '@angular/animations':
         specifier: ^19.2.4
@@ -175,7 +175,121 @@ importers:
         specifier: ~5.8.2
         version: 5.8.2
 
-  packages/eslint-config:
+  packages/react/button:
+    dependencies:
+      '@rds/styles':
+        specifier: '*'
+        version: link:../../shared/styles
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+    devDependencies:
+      '@rds/eslint-config':
+        specifier: workspace:*
+        version: link:../../shared/eslint-config
+      '@rds/typescript-config':
+        specifier: workspace:*
+        version: link:../../shared/typescript-config
+      '@rds/utils':
+        specifier: workspace:*
+        version: link:../../shared/utils
+      '@types/eslint':
+        specifier: ^9.6.1
+        version: 9.6.1
+      '@types/node':
+        specifier: ^22.10.1
+        version: 22.14.0
+      '@types/react':
+        specifier: ^18.2.61
+        version: 18.3.20
+      '@types/react-dom':
+        specifier: ^18.2.19
+        version: 18.3.6(@types/react@18.3.20)
+      eslint:
+        specifier: ^9.16.0
+        version: 9.23.0
+      tsup:
+        specifier: ^8.3.5
+        version: 8.4.0(typescript@5.8.2)
+      typescript:
+        specifier: ^5.7.2
+        version: 5.8.2
+
+  packages/react/dialog:
+    dependencies:
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+    devDependencies:
+      '@rds/eslint-config':
+        specifier: workspace:*
+        version: link:../../shared/eslint-config
+      '@rds/typescript-config':
+        specifier: workspace:*
+        version: link:../../shared/typescript-config
+      '@rds/utils':
+        specifier: workspace:*
+        version: link:../../shared/utils
+      '@types/eslint':
+        specifier: ^9.6.1
+        version: 9.6.1
+      '@types/node':
+        specifier: ^22.10.1
+        version: 22.14.0
+      '@types/react':
+        specifier: ^18.2.61
+        version: 18.3.20
+      '@types/react-dom':
+        specifier: ^18.2.19
+        version: 18.3.6(@types/react@18.3.20)
+      eslint:
+        specifier: ^9.16.0
+        version: 9.23.0
+      tsup:
+        specifier: ^8.3.5
+        version: 8.4.0(typescript@5.8.2)
+      typescript:
+        specifier: ^5.7.2
+        version: 5.8.2
+
+  packages/react/popover:
+    dependencies:
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+    devDependencies:
+      '@rds/eslint-config':
+        specifier: workspace:*
+        version: link:../../shared/eslint-config
+      '@rds/typescript-config':
+        specifier: workspace:*
+        version: link:../../shared/typescript-config
+      '@rds/utils':
+        specifier: workspace:*
+        version: link:../../shared/utils
+      '@types/eslint':
+        specifier: ^9.6.1
+        version: 9.6.1
+      '@types/node':
+        specifier: ^22.10.1
+        version: 22.14.0
+      '@types/react':
+        specifier: ^18.2.61
+        version: 18.3.20
+      '@types/react-dom':
+        specifier: ^18.2.19
+        version: 18.3.6(@types/react@18.3.20)
+      eslint:
+        specifier: ^9.16.0
+        version: 9.23.0
+      tsup:
+        specifier: ^8.3.5
+        version: 8.4.0(typescript@5.8.2)
+      typescript:
+        specifier: ^5.7.2
+        version: 5.8.2
+
+  packages/shared/eslint-config:
     devDependencies:
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.1.0
@@ -199,130 +313,16 @@ importers:
         specifier: ^5.3.3
         version: 5.8.2
 
-  packages/react-button:
-    dependencies:
-      '@tiny-bits/styles':
-        specifier: '*'
-        version: link:../styles
-      react:
-        specifier: ^18.2.0
-        version: 18.3.1
+  packages/shared/styles: {}
+
+  packages/shared/typescript-config: {}
+
+  packages/shared/utils:
     devDependencies:
-      '@tiny-bits/eslint-config':
+      '@rds/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@tiny-bits/typescript-config':
-        specifier: workspace:*
-        version: link:../typescript-config
-      '@tiny-bits/utils':
-        specifier: workspace:*
-        version: link:../utils
-      '@types/eslint':
-        specifier: ^9.6.1
-        version: 9.6.1
-      '@types/node':
-        specifier: ^22.10.1
-        version: 22.14.0
-      '@types/react':
-        specifier: ^18.2.61
-        version: 18.3.20
-      '@types/react-dom':
-        specifier: ^18.2.19
-        version: 18.3.6(@types/react@18.3.20)
-      eslint:
-        specifier: ^9.16.0
-        version: 9.23.0
-      tsup:
-        specifier: ^8.3.5
-        version: 8.4.0(typescript@5.8.2)
-      typescript:
-        specifier: ^5.7.2
-        version: 5.8.2
-
-  packages/react-dialog:
-    dependencies:
-      react:
-        specifier: ^18.2.0
-        version: 18.3.1
-    devDependencies:
-      '@tiny-bits/eslint-config':
-        specifier: workspace:*
-        version: link:../eslint-config
-      '@tiny-bits/typescript-config':
-        specifier: workspace:*
-        version: link:../typescript-config
-      '@tiny-bits/utils':
-        specifier: workspace:*
-        version: link:../utils
-      '@types/eslint':
-        specifier: ^9.6.1
-        version: 9.6.1
-      '@types/node':
-        specifier: ^22.10.1
-        version: 22.14.0
-      '@types/react':
-        specifier: ^18.2.61
-        version: 18.3.20
-      '@types/react-dom':
-        specifier: ^18.2.19
-        version: 18.3.6(@types/react@18.3.20)
-      eslint:
-        specifier: ^9.16.0
-        version: 9.23.0
-      tsup:
-        specifier: ^8.3.5
-        version: 8.4.0(typescript@5.8.2)
-      typescript:
-        specifier: ^5.7.2
-        version: 5.8.2
-
-  packages/react-popover:
-    dependencies:
-      react:
-        specifier: ^18.2.0
-        version: 18.3.1
-    devDependencies:
-      '@tiny-bits/eslint-config':
-        specifier: workspace:*
-        version: link:../eslint-config
-      '@tiny-bits/typescript-config':
-        specifier: workspace:*
-        version: link:../typescript-config
-      '@tiny-bits/utils':
-        specifier: workspace:*
-        version: link:../utils
-      '@types/eslint':
-        specifier: ^9.6.1
-        version: 9.6.1
-      '@types/node':
-        specifier: ^22.10.1
-        version: 22.14.0
-      '@types/react':
-        specifier: ^18.2.61
-        version: 18.3.20
-      '@types/react-dom':
-        specifier: ^18.2.19
-        version: 18.3.6(@types/react@18.3.20)
-      eslint:
-        specifier: ^9.16.0
-        version: 9.23.0
-      tsup:
-        specifier: ^8.3.5
-        version: 8.4.0(typescript@5.8.2)
-      typescript:
-        specifier: ^5.7.2
-        version: 5.8.2
-
-  packages/styles: {}
-
-  packages/typescript-config: {}
-
-  packages/utils:
-    devDependencies:
-      '@tiny-bits/eslint-config':
-        specifier: workspace:*
-        version: link:../eslint-config
-      '@tiny-bits/typescript-config':
+      '@rds/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/eslint':
@@ -1200,7 +1200,7 @@ packages:
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@babel/code-frame': 7.26.2
-      '@babel/generator': 7.27.0
+      '@babel/generator': 7.26.10
       '@babel/helper-compilation-targets': 7.27.0
       '@babel/helper-module-transforms': 7.26.0(@babel/core@7.26.10)
       '@babel/helpers': 7.27.0
@@ -3974,20 +3974,6 @@ packages:
       rollup: 4.39.0
     dev: true
 
-  /@rollup/pluginutils@5.1.4:
-    resolution: {integrity: sha512-USm05zrsFxYLPdWWq+K3STlWiT/3ELn3RcV5hJMghpeAIhxfsUIg6mt12CBJBInWMV4VneoV7SfGv8xIwo2qNQ==}
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
-    peerDependenciesMeta:
-      rollup:
-        optional: true
-    dependencies:
-      '@types/estree': 1.0.7
-      estree-walker: 2.0.2
-      picomatch: 4.0.2
-    dev: false
-
   /@rollup/pluginutils@5.1.4(rollup@4.39.0):
     resolution: {integrity: sha512-USm05zrsFxYLPdWWq+K3STlWiT/3ELn3RcV5hJMghpeAIhxfsUIg6mt12CBJBInWMV4VneoV7SfGv8xIwo2qNQ==}
     engines: {node: '>=14.0.0'}
@@ -4001,7 +3987,6 @@ packages:
       estree-walker: 2.0.2
       picomatch: 4.0.2
       rollup: 4.39.0
-    dev: true
 
   /@rollup/rollup-android-arm-eabi@4.34.8:
     resolution: {integrity: sha512-q217OSE8DTp8AFHuNHXo0Y86e1wtlfVrXiAlwkIvGRQv9zbc6mE3sjIVfwI8sYUyNxwOg0j/Vm1RKM04JcWLJw==}
@@ -5797,7 +5782,7 @@ packages:
       '@astrojs/markdown-remark': 6.3.1
       '@astrojs/telemetry': 3.2.0
       '@oslojs/encoding': 1.1.0
-      '@rollup/pluginutils': 5.1.4
+      '@rollup/pluginutils': 5.1.4(rollup@4.39.0)
       acorn: 8.14.1
       aria-query: 5.3.2
       axobject-query: 4.1.0
@@ -6152,7 +6137,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001707
-      electron-to-chromium: 1.5.129
+      electron-to-chromium: 1.5.130
       node-releases: 2.0.19
       update-browserslist-db: 1.1.3(browserslist@4.24.4)
 
@@ -6979,8 +6964,8 @@ packages:
   /ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  /electron-to-chromium@1.5.129:
-    resolution: {integrity: sha512-JlXUemX4s0+9f8mLqib/bHH8gOHf5elKS6KeWG3sk3xozb/JTq/RLXIv8OKUWiK4Ah00Wm88EFj5PYkFr4RUPA==}
+  /electron-to-chromium@1.5.130:
+    resolution: {integrity: sha512-Ou2u7L9j2XLZbhqzyX0jWDj6gA8D3jIfVzt4rikLf3cGBa0VdReuFimBKS9tQJA4+XpeCxj1NoWlfBXzbMa9IA==}
 
   /emoji-regex-xs@1.0.0:
     resolution: {integrity: sha512-LRlerrMYoIDrT6jgpeZ2YYl/L8EulRTt5hQcYjy5AInh7HWXKimpqx68aknBFpGL2+/IcogTcaydJEgaTmOpDg==}
@@ -12417,7 +12402,6 @@ packages:
   /semver@5.7.2:
     resolution: {integrity: sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==}
     hasBin: true
-    requiresBuild: true
 
   /semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}

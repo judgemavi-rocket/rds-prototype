@@ -1,0 +1,45 @@
+{
+  "name": "@rds/react-button",
+  "version": "1.0.0",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./styles.css": "./dist/index.css"
+  },
+  "main": "./dist/index.js",
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "dev": "tsup --watch",
+    "build": "tsup"
+  },
+  "devDependencies": {
+    "@rds/eslint-config": "workspace:*",
+    "@rds/typescript-config": "workspace:*",
+    "@rds/utils": "workspace:*",
+    "@types/eslint": "^9.6.1",
+    "@types/node": "^22.10.1",
+    "@types/react": "^18.2.61",
+    "@types/react-dom": "^18.2.19",
+    "eslint": "^9.16.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "keywords": [
+    "react",
+    "button",
+    "accessibility",
+    "typescript",
+    "headless",
+    "component",
+    "composable"
+  ],
+  "dependencies": {
+    "@rds/styles": "*"
+  }
+}
