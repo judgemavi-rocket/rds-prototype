@@ -1,52 +1,5 @@
-:root {
-    --rkt-button-primary-background-color: #111;
-    --rkt-button-primary-color: #fff;
-    --rkt-button-primary-hover-background-color: #de3341;
+@import "./base.css";
 
-    /* Button dimensions and spacing */
-    --rkt-button-padding: 1rem 1.25rem;
-    --rkt-button-border-radius: 62.5rem;
-    /* --rkt-button-height: 3rem; */
-
-    /* Disabled state */
-    --rkt-button-disabled-background-color: #cccccc;
-    --rkt-button-disabled-color: #666666;
-
-    --rkt-button-line-height: 1.5;
-    --rtk-font-size: 1rem;
-}
-
-/* Button base styles */
-.button {
-    font-size: var(--rtk-font-size);
-    background-color: var(--rkt-button-primary-background-color);
-    border-radius: var(--rkt-button-border-radius);
-    border: none;
-    color: var(--rkt-button-primary-color);
-    cursor: pointer;
-    line-height: var(--rkt-button-line-height);
-    padding: var(--rkt-button-padding);
-    /* height: var(--rkt-button-height); */
-}
-
-.button:hover {
-    background-color: var(--rkt-button-primary-hover-background-color);
-}
-
-/* Disabled state */
-.button--is-disabled,
-.button:disabled {
-    background-color: var(--rkt-button-disabled-background-color);
-    color: var(--rkt-button-disabled-color);
-    cursor: not-allowed;
-}
-
-.button--is-disabled:hover,
-.button--is-disabled:active,
-.button--is-disabled:focus-visible,
-.button:disabled:hover,
-.button:disabled:active,
-.button:disabled:focus-visible {
-    background-color: var(--rkt-button-disabled-background-color);
-    color: var(--rkt-button-disabled-color);
+.rkt-button {
+  @apply bg-brand-slate px-6 py-5.5 rounded-full hover:bg-brand-primary border-3 border-transparent focus-visible:border-brand-primary active:bg-pressed-primary disabled:bg-disabled text-white outline-0 disabled:text-disabled-fg;
 }

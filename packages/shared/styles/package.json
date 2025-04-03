@@ -2,6 +2,17 @@
   "name": "@rds/styles",
   "version": "1.0.0",
   "exports": {
-    "./button.css": "./src/button.css"
+    "./*.css": "./dist/*.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "mkdir -p dist && for file in src/*.css; do pnpx @tailwindcss/cli -i $file -o dist/$(basename $file); done",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.1",
+    "tailwindcss": "^4.1.1"
   }
 }

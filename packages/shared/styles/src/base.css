@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: rgba(222, 51, 65, 1);
+  --color-pressed-primary: rgba(193, 42, 54, 1);
+  --color-disabled: rgba(0, 0, 0, 0.04);
+  --color-disabled-fg: rgba(148, 148, 148, 1);
+  --color-brand-slate: rgba(17, 17, 17, 1);
+  --color-white: rgba(255, 255, 255, 1);
+  --radius-: 100px;
+}

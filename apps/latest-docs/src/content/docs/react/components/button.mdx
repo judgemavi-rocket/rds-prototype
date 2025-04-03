@@ -1,0 +1,29 @@
+---
+title: Button
+description: Displays a button
+---
+
+## Usage
+
+import { PrimaryLarge } from "/src/components/react/button/primary-large";
+import primaryLargeSource from "/src/components/react/button/primary-large.tsx?raw";
+import { PrimaryMedium } from "/src/components/react/button/primary-medium";
+import primaryMediumSource from "/src/components/react/button/primary-medium.tsx?raw";
+import { DisabledLarge } from "/src/components/react/button/disabled-large";
+import disabledLargeSource from "/src/components/react/button/disabled-large.tsx?raw";
+import { Code } from "@astrojs/starlight/components";
+
+### Primary
+<PrimaryLarge client:load />
+
+<Code code={`${primaryLargeSource}`} lang="tsx" />
+
+### Primary Medium
+<PrimaryMedium client:load />
+
+<Code code={`${primaryMediumSource}`} lang="tsx" />
+
+### Disabled
+<DisabledLarge client:load />
+
+<Code code={`${disabledLargeSource}`} lang="tsx" />

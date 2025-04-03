@@ -27,6 +27,7 @@
     "@tailwindcss/vite": "^4.1.1",
     "@rds/angular-dialog": "workspace:*",
     "@rds/react-dialog": "workspace:*",
+    "@rds/react-button": "workspace:*",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.1",
     "astro": "^5.5.3",

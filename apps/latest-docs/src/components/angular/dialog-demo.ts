@@ -17,7 +17,7 @@ import {
   ],
   template: `
     <tb-dialog [open]="dialogOpen" (openChange)="onDialogOpenChange($event)">
-      <button class="btn" tbDialogTrigger>Open Basic Dialog</button>
+      <button class="rkt-button" tbDialogTrigger>Open Basic Dialog</button>
       <tb-dialog-content>
         <div class="dialog-content">
           <div class="dialog-header">

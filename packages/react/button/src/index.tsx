@@ -1,24 +1,24 @@
 import "@rds/styles/button.css";
 import { mergeClasses } from "@rds/utils";
 import { ButtonHTMLAttributes, forwardRef, ReactNode } from "react";
-
+import "@rds/styles/button.css";
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
-  disabled?: boolean;
+  size?: "lg" | "md";
+  variant?: "primary" | "secondary" | "tertiary" | "warning" | "icon";
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ disabled = false, className, children, ...props }, ref) => {
+  (
+    { className, children, size = "lg", variant = "primary", ...props },
+    ref
+  ) => {
     return (
       <button
-        className={mergeClasses(
-          "button",
-          disabled ? "button--is-disabled" : "",
-          className
-        )}
-        disabled={disabled}
+        className={mergeClasses("rkt-button", className)}
         ref={ref}
         {...props}
+        data-size={size}
+        data-variant={variant}
       >
         {children}
       </button>
