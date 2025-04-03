@@ -1,3 +1,19 @@
-# Tiny Bits
+# RDS Components Lib
 
-Tiny Bits is a collection of small, composable components built with 0 dependencies.
+## Installation
+
+```
+pnpm install
+```
+
+## Dev
+
+```
+pnpm dev
+```
+
+Docs will become available on
+
+```
+http://localhost:4321/
+```
