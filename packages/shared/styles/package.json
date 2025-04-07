@@ -8,8 +8,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "mkdir -p dist && for file in src/*.css; do pnpx @tailwindcss/cli -i $file -o dist/$(basename $file); done",
-    "dev": "mkdir -p dist && for file in src/*.css; do pnpx @tailwindcss/cli -i $file -o dist/$(basename $file); done",
+    "build": "mkdir -p dist && for file in src/*.css; do pnpm tailwindcss -i $file -o dist/$(basename $file); done",
+    "dev": "mkdir -p dist && for file in src/*.css; do pnpm tailwindcss -i $file -o dist/$(basename $file); done",
     "clean": "rm -rf dist"
   },
   "dependencies": {

@@ -1,5 +1,36 @@
 @import "./base.css";
 
 .rkt-button {
-  @apply bg-brand-slate px-6 py-5.5 rounded-full hover:bg-brand-primary border-3 border-transparent focus-visible:border-brand-primary active:bg-pressed-primary disabled:bg-disabled text-white outline-0 disabled:text-disabled-fg;
+  @apply py-3 px-5 rounded-full border-transparent text-white font-medium text-base/6 flex justify-center items-center gap-2
+    disabled:cursor-default
+    focus-visible:outline-0
+    hover:cursor-pointer;
+}
+
+.rkt-button[data-size="lg"] {
+  @apply px-6 py-4;
+}
+
+.rkt-button[data-icon-alignment="left"] {
+  @apply pl-4.5;
+}
+
+.rkt-button[data-icon-alignment="right"] {
+  @apply pr-4.5;
+}
+
+.rkt-button[data-variant="primary"] {
+  @apply bg-brand-slate text-white
+    active:bg-pressed-primary
+    disabled:bg-disabled disabled:text-disabled-fg
+    focus-visible:inset-ring-active-primary focus-visible:inset-ring-3
+    hover:bg-active-primary;
+}
+
+.rkt-button[data-variant="secondary"] {
+  @apply bg-transparent text-brand-slate inset-ring-[1.5px] inset-ring-brand-slate
+    active:bg-pressed-secondary
+    disabled:bg-disabled disabled:text-disabled-fg disabled:inset-ring-disabled-fg
+    focus-visible:inset-ring-brand-slate focus-visible:inset-ring-3
+    hover:bg-hovered-secondary;
 }
