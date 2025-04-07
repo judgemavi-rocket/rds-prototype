@@ -1,11 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-primary: rgba(222, 51, 65, 1);
-  --color-pressed-primary: rgba(193, 42, 54, 1);
-  --color-disabled: rgba(0, 0, 0, 0.04);
-  --color-disabled-fg: rgba(148, 148, 148, 1);
-  --color-brand-slate: rgba(17, 17, 17, 1);
+  --color-brand-primary: #910d22;
+  --color-pressed-primary: #c12a36;
+  --color-active-primary: #de3341;
+  --color-hovered-secondary: #f2f2f2;
+  --color-pressed-secondary: #e9e9e9;
+  --color-disabled: #0000000a;
+  --color-disabled-fg: #949494;
+  --color-brand-slate: #111111;
   --color-white: rgba(255, 255, 255, 1);
   --radius-: 100px;
 }

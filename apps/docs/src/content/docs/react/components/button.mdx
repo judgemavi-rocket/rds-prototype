@@ -5,25 +5,58 @@ description: Displays a button
 
 ## Usage
 
+import { Primary } from "/src/components/react/button/primary";
+import primarySource from "/src/components/react/button/primary.tsx?raw";
+
 import { PrimaryLarge } from "/src/components/react/button/primary-large";
 import primaryLargeSource from "/src/components/react/button/primary-large.tsx?raw";
-import { PrimaryMedium } from "/src/components/react/button/primary-medium";
-import primaryMediumSource from "/src/components/react/button/primary-medium.tsx?raw";
-import { DisabledLarge } from "/src/components/react/button/disabled-large";
-import disabledLargeSource from "/src/components/react/button/disabled-large.tsx?raw";
+
+import { PrimaryDisabled } from "/src/components/react/button/primary-disabled";
+import primaryDisabledSource from "/src/components/react/button/primary-disabled.tsx?raw";
+
+import { Secondary } from "/src/components/react/button/secondary";
+import secondarySource from "/src/components/react/button/secondary.tsx?raw";
+
+import { SecondaryDisabled } from "/src/components/react/button/secondary-disabled";
+import secondaryDisabledSource from "/src/components/react/button/secondary-disabled.tsx?raw";
+
+import { WithIcon } from "/src/components/react/button/with-icon";
+import withIconSource from "/src/components/react/button/with-icon.tsx?raw";
+
 import { Code } from "@astrojs/starlight/components";
 
 ### Primary
+
+<Primary client:load />
+
+<Code code={`${primarySource}`} lang="tsx" />
+
+### Primary Large
+
 <PrimaryLarge client:load />
 
 <Code code={`${primaryLargeSource}`} lang="tsx" />
 
-### Primary Medium
-<PrimaryMedium client:load />
+### Primary Disabled
 
-<Code code={`${primaryMediumSource}`} lang="tsx" />
+<PrimaryDisabled client:load />
 
-### Disabled
-<DisabledLarge client:load />
+<Code code={`${primaryDisabledSource}`} lang="tsx" />
 
-<Code code={`${disabledLargeSource}`} lang="tsx" />
+### Secondary
+
+<Secondary client:load />
+
+<Code code={`${secondarySource}`} lang="tsx" />
+
+### Secondary Disabled
+
+<SecondaryDisabled client:load />
+
+<Code code={`${secondaryDisabledSource}`} lang="tsx" />
+
+### With Icon
+
+<WithIcon client:load />
+
+<Code code={`${withIconSource}`} lang="tsx" />
