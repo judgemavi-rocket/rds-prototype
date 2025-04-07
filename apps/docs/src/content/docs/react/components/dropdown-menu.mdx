@@ -1,0 +1,24 @@
+---
+title: Dropdown Menu
+description: Dropdown Menu
+---
+
+## Usage
+
+import { Default } from "/src/components/react/dropdown-menu/default";
+import { CustomTrigger } from "/src/components/react/dropdown-menu/custom-trigger";
+import { Code } from "@astrojs/starlight/components";
+import defaultDialogReactSource from "/src/components/react/dropdown-menu/default.tsx?raw";
+import customTriggerDialogReactSource from "/src/components/react/dropdown-menu/custom-trigger.tsx?raw";
+
+### Default
+
+<Default client:load />
+
+<Code code={`${defaultDialogReactSource}`} lang="tsx" />
+
+### Custom trigger
+
+<CustomTrigger client:load />
+
+<Code code={`${customTriggerDialogReactSource}`} lang="tsx" />
