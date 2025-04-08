@@ -187,8 +187,8 @@ importers:
         specifier: '*'
         version: link:../../shared/styles
       react:
-        specifier: ^18.2.0
-        version: 18.3.1
+        specifier: ^19.1.0
+        version: 19.1.0
     devDependencies:
       '@rds/eslint-config':
         specifier: workspace:*
@@ -206,11 +206,11 @@ importers:
         specifier: ^22.10.1
         version: 22.14.0
       '@types/react':
-        specifier: ^18.2.61
-        version: 18.3.20
+        specifier: ^19.1.0
+        version: 19.1.0
       '@types/react-dom':
-        specifier: ^18.2.19
-        version: 18.3.6(@types/react@18.3.20)
+        specifier: ^19.1.0
+        version: 19.1.1(@types/react@19.1.0)
       eslint:
         specifier: ^9.16.0
         version: 9.23.0
@@ -223,9 +223,15 @@ importers:
 
   packages/react/dialog:
     dependencies:
+      '@rds/react-button':
+        specifier: workspace:*
+        version: link:../button
+      '@rds/styles':
+        specifier: workspace:*
+        version: link:../../shared/styles
       react:
-        specifier: ^18.2.0
-        version: 18.3.1
+        specifier: ^19.1.0
+        version: 19.1.0
     devDependencies:
       '@rds/eslint-config':
         specifier: workspace:*
@@ -243,11 +249,11 @@ importers:
         specifier: ^22.10.1
         version: 22.14.0
       '@types/react':
-        specifier: ^18.2.61
-        version: 18.3.20
+        specifier: ^19.1.0
+        version: 19.1.0
       '@types/react-dom':
-        specifier: ^18.2.19
-        version: 18.3.6(@types/react@18.3.20)
+        specifier: ^19.1.0
+        version: 19.1.1(@types/react@19.1.0)
       eslint:
         specifier: ^9.16.0
         version: 9.23.0
