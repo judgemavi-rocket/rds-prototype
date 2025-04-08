@@ -11,8 +11,7 @@
   --color-brand-slate: #111111;
   --color-white: #ffffff;
   --color-backdrop: #00000080;
-  --dialog-z-index: 1000;
-  --dialog-shadow: 0 10px 30px 0 #0000001f;
+  --shadow-dialog: 0 10px 30px 0 #0000001f;
   --radius-dialog: 1.5rem;
   --color-secondary: #545454;
 }

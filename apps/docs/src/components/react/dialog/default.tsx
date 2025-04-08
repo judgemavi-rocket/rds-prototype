@@ -5,6 +5,7 @@ export function Default() {
     <Dialog.Root>
       <Dialog.Trigger>Open dialog</Dialog.Trigger>
       <Dialog.Content>
+        <Dialog.Title>Title</Dialog.Title>
         <p>Hello world dialog</p>
         <Dialog.Close>Close</Dialog.Close>
       </Dialog.Content>

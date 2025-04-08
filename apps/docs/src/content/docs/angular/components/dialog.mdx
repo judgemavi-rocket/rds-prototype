@@ -4,11 +4,14 @@ description: A window overlaid on either the primary windo wor another dialog wi
 ---
 
 ## Usage
-
-import { DialogDemoComponent } from "/src/components/angular/dialog-demo";
+import CodePreview from "/src/components/ui/codePreview.astro"
+import ApiReference from "/src/components/ui/apiReference.astro"
 import { Code } from "@astrojs/starlight/components";
-import dialogAngularSource from "/src/components/angular/dialog-demo.ts?raw";
-import { Tabs, TabItem } from "@astrojs/starlight/components";
 
-<DialogDemoComponent client:load />
-<Code code={`${dialogAngularSource}`} lang="ts" />
+
+import { Default } from "/src/components/angular/default";
+import defaultSrc from "/src/components/angular/default.ts?raw";
+
+<CodePreview code={`${defaultSrc}`} lang="ts">
+    <Default client:load/>
+</CodePreview>

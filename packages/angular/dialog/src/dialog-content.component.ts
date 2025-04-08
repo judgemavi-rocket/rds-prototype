@@ -1,28 +1,38 @@
-import { Component, ContentChild, TemplateRef, OnInit, OnDestroy, inject, ViewChild, ElementRef } from '@angular/core';
-import { DialogContextService } from './dialog-context.service';
-import { CommonModule } from '@angular/common';
+import {
+  Component,
+  ContentChild,
+  TemplateRef,
+  OnInit,
+  OnDestroy,
+  inject,
+  ViewChild,
+  ElementRef,
+} from "@angular/core";
+import { DialogContextService } from "./dialog-context.service";
+import { CommonModule } from "@angular/common";
 
 @Component({
-  selector: 'tb-dialog-content',
+  selector: "tb-dialog-content",
   standalone: true,
   imports: [CommonModule],
   template: `
-    <dialog #dialog [class.tiny-bits-modal]="isModal$ | async" (click)="onDialogClick($event)">
-      <ng-content/>
+    <dialog #dialog class="rkt-dialog" (click)="onDialogClick($event)">
+      <ng-content />
     </dialog>
-  `
+  `,
+  styleUrls: ["dialog.component.css"],
 })
 export class DialogContentComponent implements OnInit, OnDestroy {
   @ContentChild(TemplateRef) contentTemplate!: TemplateRef<any>;
-  @ViewChild('dialog') dialogElement!: ElementRef<HTMLDialogElement>;
-  
+  @ViewChild("dialog") dialogElement!: ElementRef<HTMLDialogElement>;
+
   private dialogContext = inject(DialogContextService);
   isModal$ = this.dialogContext.modal$;
 
   constructor() {}
 
   ngOnInit() {
-    this.dialogContext.open$.subscribe(open => {
+    this.dialogContext.open$.subscribe((open) => {
       const dialog = this.dialogElement.nativeElement;
       if (open) {
         const isModal = this.dialogContext.getModalValue();
@@ -33,19 +43,21 @@ export class DialogContentComponent implements OnInit, OnDestroy {
     });
 
     const dialog = this.dialogElement.nativeElement;
-    dialog.addEventListener('close', () => this.dialogContext.closeDialog());
+    dialog.addEventListener("close", () => this.dialogContext.closeDialog());
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && !this.dialogContext.getModalValue()) {
+      if (event.key === "Escape" && !this.dialogContext.getModalValue()) {
         this.dialogContext.closeDialog();
       }
     };
 
-    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      dialog.removeEventListener('close', () => this.dialogContext.closeDialog());
-      document.removeEventListener('keydown', handleKeyDown);
+      dialog.removeEventListener("close", () =>
+        this.dialogContext.closeDialog()
+      );
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }
 
@@ -55,14 +67,13 @@ export class DialogContentComponent implements OnInit, OnDestroy {
 
   onDialogClick(event: MouseEvent) {
     const rect = this.dialogElement.nativeElement.getBoundingClientRect();
-    const isInDialog = (
+    const isInDialog =
       rect.top <= event.clientY &&
       event.clientY <= rect.top + rect.height &&
       rect.left <= event.clientX &&
-      event.clientX <= rect.left + rect.width
-    );
+      event.clientX <= rect.left + rect.width;
     if (!isInDialog) {
       this.dialogContext.closeDialog();
     }
   }
-} 
+}

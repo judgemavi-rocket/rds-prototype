@@ -35,7 +35,7 @@ import {
     </tb-dialog>
   `,
 })
-export class DialogDemoComponent {
+export class Default {
   dialogOpen = false;
 
   onDialogOpenChange(open: boolean) {

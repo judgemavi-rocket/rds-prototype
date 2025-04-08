@@ -7,9 +7,9 @@ import ApiReference from "/src/components/ui/apiReference.astro"
 import { Code } from "@astrojs/starlight/components";
 
 import { Default } from "/src/components/angular/button/default";
-import source from "/src/components/angular/button/default.ts?raw";
+import defaultSrc from "/src/components/angular/button/default.ts?raw";
 
-<CodePreview code={`${source}`} lang="ts">
+<CodePreview code={`${defaultSrc}`} lang="ts">
     <Default/>
 </CodePreview>
 
@@ -21,7 +21,7 @@ import source from "/src/components/angular/button/default.ts?raw";
 
 ### Large
 
-import { Large } from "/src/components/angular/button/large.ts";
+import { Large } from "/src/components/angular/button/large";
 import largeSrc from "/src/components/angular/button/large.ts?raw";
 
 <CodePreview code={largeSrc} lang="ts">
@@ -30,7 +30,7 @@ import largeSrc from "/src/components/angular/button/large.ts?raw";
 
 ### Secondary
 
-import { Secondary } from "/src/components/angular/button/secondary.ts";
+import { Secondary } from "/src/components/angular/button/secondary";
 import secondarySrc from "/src/components/angular/button/secondary.ts?raw";
 
 <CodePreview code={secondarySrc} lang="ts">
@@ -39,7 +39,7 @@ import secondarySrc from "/src/components/angular/button/secondary.ts?raw";
 
 ### Disabled
 
-import { Disabled } from "/src/components/angular/button/disabled.ts";
+import { Disabled } from "/src/components/angular/button/disabled";
 import disabledSrc from "/src/components/angular/button/disabled.ts?raw";
 
 <CodePreview code={disabledSrc} lang="ts">

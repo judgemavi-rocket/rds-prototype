@@ -5,6 +5,7 @@ export function Large() {
     <Dialog.Root modal size="lg">
       <Dialog.Trigger>Open large modal</Dialog.Trigger>
       <Dialog.Content>
+        <Dialog.Title>Title</Dialog.Title>
         <p>Hello world modal</p>
         <Dialog.Close>Close</Dialog.Close>
       </Dialog.Content>
