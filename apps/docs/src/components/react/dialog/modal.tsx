@@ -5,6 +5,7 @@ export function Modal() {
     <Dialog.Root modal>
       <Dialog.Trigger>Open modal</Dialog.Trigger>
       <Dialog.Content>
+        <Dialog.Title>Title</Dialog.Title>
         <p>Hello world modal</p>
         <Dialog.Close>Close</Dialog.Close>
       </Dialog.Content>

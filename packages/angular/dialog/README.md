@@ -29,38 +29,38 @@ import { DialogComponent, DialogContentComponent, DialogTriggerDirective, Dialog
 ### Basic Dialog
 
 ```html
-<tb-dialog [open]="dialogOpen" (openChange)="onDialogOpenChange($event)">
-  <button tbDialogTrigger>Open Dialog</button>
-  <tb-dialog-content>
+<rkt-dialog [open]="dialogOpen" (openChange)="onDialogOpenChange($event)">
+  <button rktDialogTrigger>Open Dialog</button>
+  <rkt-dialog-content>
     <ng-template>
       <div class="dialog-content">
         <div class="dialog-header">
           <h2>Dialog Title</h2>
-          <button tbDialogClose>×</button>
+          <button rktDialogClose>×</button>
         </div>
         <div class="dialog-body">
           <p>Dialog content goes here.</p>
         </div>
       </div>
     </ng-template>
-  </tb-dialog-content>
-</tb-dialog>
+  </rkt-dialog-content>
+</rkt-dialog>
 ```
 
 ### Dialog with Form
 
 ```html
-<tb-dialog
+<rkt-dialog
   [open]="formDialogOpen"
   (openChange)="onFormDialogOpenChange($event)"
 >
-  <button tbDialogTrigger>Open Form Dialog</button>
-  <tb-dialog-content>
+  <button rktDialogTrigger>Open Form Dialog</button>
+  <rkt-dialog-content>
     <ng-template>
       <div class="dialog-content">
         <div class="dialog-header">
           <h2>Contact Form</h2>
-          <button tbDialogClose>×</button>
+          <button rktDialogClose>×</button>
         </div>
         <div class="dialog-body">
           <form>
@@ -73,13 +73,13 @@ import { DialogComponent, DialogContentComponent, DialogTriggerDirective, Dialog
         </div>
       </div>
     </ng-template>
-  </tb-dialog-content>
-</tb-dialog>
+  </rkt-dialog-content>
+</rkt-dialog>
 ```
 
 ## API
 
-### Dialog Component (`tb-dialog`)
+### Dialog Component (`rkt-dialog`)
 
 The main dialog container component.
 
@@ -88,11 +88,11 @@ The main dialog container component.
 - `[open]`: boolean - Controls the visibility of the dialog
 - `(openChange)`: EventEmitter<boolean> - Emits when the dialog's open state changes
 
-### Dialog Content (`tb-dialog-content`)
+### Dialog Content (`rkt-dialog-content`)
 
 The content container for the dialog.
 
-### Dialog Trigger Directive (`[tbDialogTrigger]`)
+### Dialog Trigger Directive (`[rktDialogTrigger]`)
 
 A directive that can be attached to any button to trigger the dialog.
 
@@ -100,7 +100,7 @@ A directive that can be attached to any button to trigger the dialog.
 
 - `(openChange)`: EventEmitter<boolean> - Emits when the trigger is clicked
 
-### Dialog Close Directive (`[tbDialogClose]`)
+### Dialog Close Directive (`[rktDialogClose]`)
 
 A directive that can be attached to any button to close the dialog.
 

@@ -7,7 +7,7 @@ import {
 import { CommonModule } from "@angular/common";
 
 @Component({
-  selector: "[tb-button]",
+  selector: "[rkt-button]",
   standalone: true,
   template: `<ng-content></ng-content>`,
   imports: [CommonModule],

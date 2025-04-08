@@ -3,15 +3,38 @@ title: Dialog
 description: A window overlaid on either the primary windo wor another dialog window, rendering the content underneath inert.
 ---
 
-## Usage
 import CodePreview from "/src/components/ui/codePreview.astro"
 import ApiReference from "/src/components/ui/apiReference.astro"
 import { Code } from "@astrojs/starlight/components";
 
 
-import { Default } from "/src/components/angular/default";
-import defaultSrc from "/src/components/angular/default.ts?raw";
+import { Default } from "/src/components/angular/dialog/default";
+import defaultSrc from "/src/components/angular/dialog/default.ts?raw";
 
 <CodePreview code={`${defaultSrc}`} lang="ts">
     <Default client:load/>
+</CodePreview>
+
+## Installation
+
+<Code code={`npm install @rds/angular-dialog`} frame="terminal" lang="sh" />
+
+## Examples
+
+### Modal
+
+import { Modal } from "/src/components/angular/dialog/modal";
+import modalSrc from "/src/components/angular/dialog/modal.ts?raw";
+
+<CodePreview code={`${modalSrc}`} lang="ts">
+    <Modal client:load/>
+</CodePreview>
+
+### Large
+
+import { Large } from "/src/components/angular/dialog/large";
+import largeSrc from "/src/components/angular/dialog/large.ts?raw";
+
+<CodePreview code={`${largeSrc}`} lang="ts">
+    <Large client:load/>
 </CodePreview>

@@ -5,6 +5,6 @@ import { ButtonComponent } from "@rds/angular-button";
   selector: "app-button-demo",
   standalone: true,
   imports: [ButtonComponent],
-  template: `<button tb-button>Default</button>`,
+  template: `<button rkt-button>Default</button>`,
 })
 export class Default {}

@@ -12,11 +12,16 @@ import { DialogContextService } from "./dialog-context.service";
 import { CommonModule } from "@angular/common";
 
 @Component({
-  selector: "tb-dialog-content",
+  selector: "rkt-dialog-content",
   standalone: true,
   imports: [CommonModule],
   template: `
-    <dialog #dialog class="rkt-dialog" (click)="onDialogClick($event)">
+    <dialog
+      #dialog
+      class="rkt-dialog"
+      (click)="onDialogClick($event)"
+      [attr.data-size]="size$ | async"
+    >
       <ng-content />
     </dialog>
   `,
@@ -28,6 +33,7 @@ export class DialogContentComponent implements OnInit, OnDestroy {
 
   private dialogContext = inject(DialogContextService);
   isModal$ = this.dialogContext.modal$;
+  size$ = this.dialogContext.size$;
 
   constructor() {}
 

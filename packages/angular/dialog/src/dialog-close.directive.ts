@@ -1,20 +1,18 @@
-import { Directive, EventEmitter, HostListener, Output } from '@angular/core';
-import { DialogContextService } from './dialog-context.service';
+import { Directive, EventEmitter, HostListener, Output } from "@angular/core";
+import { DialogContextService } from "./dialog-context.service";
 
 @Directive({
-  selector: '[tbDialogClose]',
-  standalone: true
+  selector: "[rktDialogClose]",
+  standalone: true,
 })
 export class DialogCloseDirective {
   @Output() closeChange = new EventEmitter<boolean>();
 
-  constructor(
-    private dialogContext: DialogContextService
-  ) {}
+  constructor(private dialogContext: DialogContextService) {}
 
-  @HostListener('click')
+  @HostListener("click")
   closeDialog() {
     this.dialogContext.closeDialog();
     this.closeChange.emit(false);
   }
-} 
+}

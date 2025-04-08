@@ -7,16 +7,18 @@ import {
   OnChanges,
 } from "@angular/core";
 import { DialogContextService } from "./dialog-context.service";
+import { DialogSize } from "./dialog.types";
 
 @Component({
-  selector: "tb-dialog",
+  selector: "rkt-dialog",
   standalone: true,
   template: `<ng-content></ng-content>`,
   providers: [DialogContextService],
 })
 export class DialogComponent implements OnInit, OnChanges {
   @Input() open = false;
-  @Input() modal = true;
+  @Input() modal = false;
+  @Input() size: DialogSize = "md";
   @Output() openChange = new EventEmitter<boolean>();
 
   constructor(private dialogContext: DialogContextService) {}
@@ -24,6 +26,7 @@ export class DialogComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.dialogContext.setOpen(this.open);
     this.dialogContext.setModal(this.modal);
+    this.dialogContext.setSize(this.size);
     this.dialogContext.openChange.subscribe((open) => {
       this.openChange.emit(open);
     });

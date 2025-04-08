@@ -1,20 +1,18 @@
-import { Directive, EventEmitter, HostListener, Output } from '@angular/core';
-import { DialogContextService } from './dialog-context.service';
+import { Directive, EventEmitter, HostListener, Output } from "@angular/core";
+import { DialogContextService } from "./dialog-context.service";
 
 @Directive({
-  selector: '[tbDialogTrigger]',
-  standalone: true
+  selector: "[rktDialogTrigger]",
+  standalone: true,
 })
 export class DialogTriggerDirective {
   @Output() openChange = new EventEmitter<boolean>();
 
-  constructor(
-    private dialogContext: DialogContextService
-  ) {}
+  constructor(private dialogContext: DialogContextService) {}
 
-  @HostListener('click')
+  @HostListener("click")
   openDialog() {
     this.dialogContext.openDialog();
     this.openChange.emit(true);
   }
-} 
+}
