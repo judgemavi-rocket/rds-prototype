@@ -18,7 +18,7 @@ import {
     DialogTitleComponent,
   ],
   template: `
-    <rkt-dialog [open]="dialogOpen" (openChange)="onDialogOpenChange($event)">
+    <rkt-dialog>
       <button rktDialogTrigger>Open dialog</button>
       <rkt-dialog-content>
         <rkt-dialog-title>Title</rkt-dialog-title>
