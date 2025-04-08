@@ -83,12 +83,6 @@ importers:
       '@tailwindcss/vite':
         specifier: ^4.1.1
         version: 4.1.1(vite@6.2.4)
-      '@types/react':
-        specifier: ^19.1.0
-        version: 19.1.0
-      '@types/react-dom':
-        specifier: ^19.1.0
-        version: 19.1.1(@types/react@19.1.0)
       astro:
         specifier: ^5.5.3
         version: 5.5.6(less@4.2.2)(typescript@5.8.2)
@@ -122,6 +116,13 @@ importers:
       zone.js:
         specifier: ^0.15.0
         version: 0.15.0
+    devDependencies:
+      '@types/react':
+        specifier: ^19.1.0
+        version: 19.1.0
+      '@types/react-dom':
+        specifier: ^19.1.0
+        version: 19.1.1(@types/react@19.1.0)
 
   packages/angular/button:
     dependencies:
@@ -395,8 +396,8 @@ importers:
   packages/react/popover:
     dependencies:
       react:
-        specifier: ^18.2.0
-        version: 18.3.1
+        specifier: ^19.1.0
+        version: 19.1.0
     devDependencies:
       '@rds/eslint-config':
         specifier: workspace:*
@@ -414,11 +415,11 @@ importers:
         specifier: ^22.10.1
         version: 22.14.0
       '@types/react':
-        specifier: ^18.2.61
-        version: 18.3.20
+        specifier: ^19.1.0
+        version: 19.1.0
       '@types/react-dom':
-        specifier: ^18.2.19
-        version: 18.3.6(@types/react@18.3.20)
+        specifier: ^19.1.0
+        version: 19.1.1(@types/react@19.1.0)
       eslint:
         specifier: ^9.16.0
         version: 9.23.0
@@ -5261,23 +5262,11 @@ packages:
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
     dev: true
 
-  /@types/prop-types@15.7.14:
-    resolution: {integrity: sha512-gNMvNH49DJ7OJYv+KAKn0Xp45p8PLl6zo2YnvDIbTd4J6MER2BmWN49TG7n9LvkyihINxeKW8+3bfS2yDC9dzQ==}
-    dev: true
-
   /@types/qs@6.9.18:
     resolution: {integrity: sha512-kK7dgTYDyGqS+e2Q4aK9X3D7q234CIZ1Bv0q/7Z5IwRDoADNU81xXJK/YVyLbLTZCoIwUoDoffFeF+p/eIklAA==}
 
   /@types/range-parser@1.2.7:
     resolution: {integrity: sha512-hKormJbkJqzQGhziax5PItDUTMAM9uE2XXQmM37dyd4hVM+5aVl7oVxMVUiVQn2oCQFN/LKCZdvSM0pFRqbSmQ==}
-
-  /@types/react-dom@18.3.6(@types/react@18.3.20):
-    resolution: {integrity: sha512-nf22//wEbKXusP6E9pfOCDwFdHAX4u172eaJI4YkDRQEZiorm6KfYnSC2SWLDMVWUOWPERmJnN0ujeAfTBLvrw==}
-    peerDependencies:
-      '@types/react': ^18.0.0
-    dependencies:
-      '@types/react': 18.3.20
-    dev: true
 
   /@types/react-dom@19.1.1(@types/react@19.1.0):
     resolution: {integrity: sha512-jFf/woGTVTjUJsl2O7hcopJ1r0upqoq/vIOoCj0yLh3RIXxWcljlpuZ+vEBRXsymD1jhfeJrlyTy/S1UW+4y1w==}
@@ -5285,13 +5274,6 @@ packages:
       '@types/react': ^19.0.0
     dependencies:
       '@types/react': 19.1.0
-
-  /@types/react@18.3.20:
-    resolution: {integrity: sha512-IPaCZN7PShZK/3t6Q87pfTkRm6oLTd4vztyoj+cbHUF1g3FfVb2tFIL79uCRKEfv16AhqDMBywP2VW3KIZUvcg==}
-    dependencies:
-      '@types/prop-types': 15.7.14
-      csstype: 3.1.3
-    dev: true
 
   /@types/react@19.1.0:
     resolution: {integrity: sha512-UaicktuQI+9UKyA4njtDOGBD/67t8YEBt2xdfqu8+gP9hqPUPsiXlNPcpS2gVdjmis5GKPG3fCxbQLVgxsQZ8w==}
@@ -10318,6 +10300,7 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
+    dev: true
 
   /lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
@@ -12249,13 +12232,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /react@18.3.1:
-    resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
-    engines: {node: '>=0.10.0'}
-    dependencies:
-      loose-envify: 1.4.0
-    dev: false
-
   /react@19.1.0:
     resolution: {integrity: sha512-FS+XFBNvn3GTAWq26joslQgWNoFu08F4kl0J4CgdNKADkdSGXQyTCnKteIAJy96Br6YbpEU1LSzV5dYtjMkMDg==}
     engines: {node: '>=0.10.0'}
@@ -12905,6 +12881,7 @@ packages:
   /semver@5.7.2:
     resolution: {integrity: sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==}
     hasBin: true
+    requiresBuild: true
 
   /semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}

@@ -18,7 +18,8 @@
   },
   "dependencies": {
     "@rds/styles": "workspace:*",
-    "@rds/react-button": "workspace:*"
+    "@rds/react-button": "workspace:*",
+    "react": "^19.1.0"
   },
   "devDependencies": {
     "@rds/eslint-config": "workspace:*",
@@ -31,9 +32,6 @@
     "eslint": "^9.16.0",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2"
-  },
-  "peerDependencies": {
-    "react": "^19.1.0"
   },
   "keywords": [
     "react",

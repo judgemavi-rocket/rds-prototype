@@ -86,7 +86,9 @@ export default defineConfig({
     mdx({
       syntaxHighlight: "prism",
     }),
-    react(),
+    react({
+      include: ["**/components/react/*"],
+    }),
     analogjsangular({
       vite: {
         transformFilter: (code, id) => {
@@ -100,7 +102,6 @@ export default defineConfig({
     }),
   ],
   vite: {
-    ssr: {},
     plugins: [tailwindcss()],
   },
 });

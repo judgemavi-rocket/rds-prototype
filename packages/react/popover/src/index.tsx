@@ -19,7 +19,7 @@ type PopoverContextType = {
   open: boolean;
   openPopover: () => void;
   closePopover: () => void;
-  triggerRef?: RefObject<HTMLButtonElement>;
+  triggerRef?: RefObject<HTMLButtonElement | null>;
 };
 
 const PopoverContext = createContext<PopoverContextType>({
@@ -167,7 +167,6 @@ const PopoverContent = ({
 
   return (
     <div
-      // @ts-expect-error popover is a modern browser feature
       popover="auto"
       {...props}
       ref={popoverRef}

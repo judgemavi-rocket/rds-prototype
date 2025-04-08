@@ -24,14 +24,14 @@
     "@rds/utils": "workspace:*",
     "@types/eslint": "^9.6.1",
     "@types/node": "^22.10.1",
-    "@types/react": "^18.2.61",
-    "@types/react-dom": "^18.2.19",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
     "eslint": "^9.16.0",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2"
   },
-  "peerDependencies": {
-    "react": "^18.2.0"
+  "dependencies": {
+    "react": "^19.1.0"
   },
   "keywords": [
     "react",

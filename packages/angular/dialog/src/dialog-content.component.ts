@@ -7,9 +7,10 @@ import {
   inject,
   ViewChild,
   ElementRef,
+  Inject,
 } from "@angular/core";
 import { DialogContextService } from "./dialog-context.service";
-import { CommonModule } from "@angular/common";
+import { CommonModule, DOCUMENT } from "@angular/common";
 
 @Component({
   selector: "rkt-dialog-content",
@@ -35,44 +36,40 @@ export class DialogContentComponent implements OnInit, OnDestroy {
   isModal$ = this.dialogContext.modal$;
   size$ = this.dialogContext.size$;
 
-  constructor() {}
+  constructor(@Inject(DOCUMENT) private document: Document) {}
 
   ngOnInit() {
     this.dialogContext.open$.subscribe((open) => {
-      const dialog = this.dialogElement.nativeElement;
+      const dialog = this.dialogElement?.nativeElement;
       if (open) {
         const isModal = this.dialogContext.getModalValue();
-        isModal ? dialog.showModal() : dialog.show();
+        isModal ? dialog?.showModal() : dialog?.show();
       } else {
-        dialog.close();
+        dialog?.close();
       }
     });
 
-    const dialog = this.dialogElement.nativeElement;
-    dialog.addEventListener("close", () => this.dialogContext.closeDialog());
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && !this.dialogContext.getModalValue()) {
-        this.dialogContext.closeDialog();
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      dialog.removeEventListener("close", () =>
-        this.dialogContext.closeDialog()
-      );
-      document.removeEventListener("keydown", handleKeyDown);
-    };
+    const dialog = this.dialogElement?.nativeElement;
+    dialog?.addEventListener("close", () => this.dialogContext.closeDialog());
+    this.document.addEventListener("keydown", this.handleKeyDown);
   }
 
   ngOnDestroy() {
-    // Cleanup is handled in ngOnInit return function
+    const dialog = this.dialogElement?.nativeElement;
+    dialog?.removeEventListener("close", () =>
+      this.dialogContext.closeDialog()
+    );
+    this.document.removeEventListener("keydown", this.handleKeyDown);
+  }
+
+  handleKeyDown(event: KeyboardEvent) {
+    if (event.key === "Escape" && !this.dialogContext.getModalValue()) {
+      this.dialogContext.closeDialog();
+    }
   }
 
   onDialogClick(event: MouseEvent) {
-    const rect = this.dialogElement.nativeElement.getBoundingClientRect();
+    const rect = this.dialogElement?.nativeElement.getBoundingClientRect();
     const isInDialog =
       rect.top <= event.clientY &&
       event.clientY <= rect.top + rect.height &&
