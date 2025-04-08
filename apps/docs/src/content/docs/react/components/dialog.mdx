@@ -5,12 +5,31 @@ description: A window overlaid on either the primary windo wor another dialog wi
 
 ## Usage
 
-import { DialogDemoComponent } from "/src/components/react/dialog-demo";
+import { Default as Dialog } from "/src/components/react/dialog/default";
+import dialogSource from "/src/components/react/dialog/default.tsx?raw";
+
+import { Modal } from "/src/components/react/dialog/modal";
+import modalSource from "/src/components/react/dialog/modal.tsx?raw";
+
+import { Large } from "/src/components/react/dialog/large";
+import largeModalSource from "/src/components/react/dialog/large.tsx?raw";
+
 import { Code } from "@astrojs/starlight/components";
-import dialogReactSource from "/src/components/react/dialog-demo.tsx?raw";
-import { Card } from "@astrojs/starlight/components";
 
+### Default
 
-<DialogDemoComponent client:load />
+<Dialog client:load />
 
-<Code code={`${dialogReactSource}`} lang="tsx" />
+<Code code={`${dialogSource}`} lang="tsx" />
+
+### Modal
+
+<Modal client:load />
+
+<Code code={`${modalSource}`} lang="tsx" />
+
+### Modal Large
+
+<Large client:load />
+
+<Code code={`${largeModalSource}`} lang="tsx" />

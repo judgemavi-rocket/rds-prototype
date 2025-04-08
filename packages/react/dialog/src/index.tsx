@@ -1,53 +1,62 @@
 "use client";
 
+import { Button } from "@rds/react-button";
+import "@rds/styles/dialog.css";
+import { mergeClasses } from "@rds/utils";
 import {
-  ButtonHTMLAttributes,
-  DialogHTMLAttributes,
-  PropsWithoutRef,
+  type ButtonHTMLAttributes,
+  type DialogHTMLAttributes,
+  type MouseEventHandler,
+  type PropsWithoutRef,
+  type ReactNode,
+  createContext,
   useContext,
   useEffect,
   useRef,
   useState,
-  ReactNode,
-  createContext,
 } from "react";
-import { mergeClasses } from "@rds/utils";
-import "./index.module.css";
+
+type DialogSize = "md" | "lg";
 
 type DialogContextType = {
-  open: boolean;
-  openDialog: () => void;
   closeDialog: () => void;
   modal: boolean;
+  open: boolean;
+  openDialog: () => void;
+  size: DialogSize;
 };
 
 const DialogContext = createContext<DialogContextType>({
-  open: false,
-  openDialog: () => {},
   closeDialog: () => {},
   modal: true,
+  open: false,
+  openDialog: () => {},
+  size: "md",
 });
 
 type ProviderProps = {
   children: ReactNode;
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
   modal: boolean;
+  onOpenChange: (open: boolean) => void;
+  open: boolean;
+  size: DialogSize;
 };
 
 const DialogProvider = ({
   children,
-  open,
-  onOpenChange,
   modal,
+  onOpenChange,
+  open,
+  size,
 }: ProviderProps) => {
   return (
     <DialogContext.Provider
       value={{
-        open,
-        openDialog: () => onOpenChange(true),
         closeDialog: () => onOpenChange(false),
         modal,
+        open,
+        openDialog: () => onOpenChange(true),
+        size,
       }}
     >
       {children}
@@ -65,16 +74,18 @@ const useDialog = () => {
 
 type DialogProps = {
   children: ReactNode;
-  open?: boolean;
-  onOpenChange?: (open: boolean) => void;
   modal?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  open?: boolean;
+  size?: DialogSize;
 };
 
-const Dialog = ({
+const DialogRoot = ({
   children,
-  open = false,
-  onOpenChange,
   modal = false,
+  onOpenChange,
+  open = false,
+  size = "md",
 }: DialogProps) => {
   const [isOpen, setIsOpen] = useState(open);
 
@@ -86,7 +97,12 @@ const Dialog = ({
   };
 
   return (
-    <DialogProvider open={isOpen} onOpenChange={handleOpenChange} modal={modal}>
+    <DialogProvider
+      modal={modal}
+      onOpenChange={handleOpenChange}
+      open={isOpen}
+      size={size}
+    >
       {children}
     </DialogProvider>
   );
@@ -97,7 +113,7 @@ type DialogContentProps = PropsWithoutRef<
 >;
 
 const DialogContent = ({ className, ...props }: DialogContentProps) => {
-  const { open, closeDialog, modal } = useDialog();
+  const { open, closeDialog, modal, size } = useDialog();
 
   const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -153,10 +169,11 @@ const DialogContent = ({ className, ...props }: DialogContentProps) => {
     <dialog
       {...props}
       className={mergeClasses(
-        "tiny-bits-dialog",
-        modal && "tiny-bits-modal",
+        "rkt-dialog",
+        modal && "rkt-dialog--modal",
         className
       )}
+      data-size={size}
       ref={dialogRef}
     />
   );
@@ -164,22 +181,40 @@ const DialogContent = ({ className, ...props }: DialogContentProps) => {
 
 type DialogTriggerProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
-const DialogTrigger = (props: DialogTriggerProps) => {
+const DialogTrigger = ({ onClick, type, ...props }: DialogTriggerProps) => {
   const { openDialog } = useDialog();
-  return <button type="button" {...props} onClick={openDialog} />;
+
+  const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
+    onClick?.(event);
+    openDialog();
+  };
+
+  return <Button {...props} type={type ?? "button"} onClick={handleClick} />;
 };
 
 type DialogCloseProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
-const DialogClose = (props: DialogCloseProps) => {
+const DialogClose = ({ onClick, type, ...props }: DialogCloseProps) => {
   const { closeDialog } = useDialog();
-  return <button type="button" {...props} onClick={closeDialog} />;
+
+  const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
+    onClick?.(event);
+    closeDialog();
+  };
+
+  return <Button {...props} type={type ?? "button"} onClick={handleClick} />;
 };
 
-export { Dialog, DialogContent, DialogTrigger, DialogClose };
+export const Dialog = {
+  Root: DialogRoot,
+  Content: DialogContent,
+  Trigger: DialogTrigger,
+  Close: DialogClose,
+};
+
 export type {
-  DialogProps,
-  DialogContentProps,
-  DialogTriggerProps,
   DialogCloseProps,
+  DialogContentProps,
+  DialogProps,
+  DialogTriggerProps,
 };
