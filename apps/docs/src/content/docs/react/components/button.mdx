@@ -2,61 +2,79 @@
 title: Button
 description: Displays a button
 ---
-
-## Usage
-
-import { Primary } from "/src/components/react/button/primary";
-import primarySource from "/src/components/react/button/primary.tsx?raw";
-
-import { PrimaryLarge } from "/src/components/react/button/primary-large";
-import primaryLargeSource from "/src/components/react/button/primary-large.tsx?raw";
-
-import { PrimaryDisabled } from "/src/components/react/button/primary-disabled";
-import primaryDisabledSource from "/src/components/react/button/primary-disabled.tsx?raw";
-
-import { Secondary } from "/src/components/react/button/secondary";
-import secondarySource from "/src/components/react/button/secondary.tsx?raw";
-
-import { SecondaryDisabled } from "/src/components/react/button/secondary-disabled";
-import secondaryDisabledSource from "/src/components/react/button/secondary-disabled.tsx?raw";
-
-import { WithIcon } from "/src/components/react/button/with-icon";
-import withIconSource from "/src/components/react/button/with-icon.tsx?raw";
-
+import CodePreview from "/src/components/ui/codePreview.astro"
+import ApiReference from "/src/components/ui/apiReference.astro"
 import { Code } from "@astrojs/starlight/components";
 
-### Primary
+import { Default } from "/src/components/react/button/default";
+import defaultSrc from "/src/components/react/button/default.tsx?raw";
 
-<Primary client:load />
+<CodePreview code={defaultSrc} lang="tsx">
+    <Default/>
+</CodePreview>
 
-<Code code={`${primarySource}`} lang="tsx" />
+## Installation
 
-### Primary Large
+<Code code={`npm install @rds/react-button`} frame="terminal" lang="sh" />
 
-<PrimaryLarge client:load />
+## Examples
 
-<Code code={`${primaryLargeSource}`} lang="tsx" />
+### Large
 
-### Primary Disabled
+import { Large } from "/src/components/react/button/large";
+import largeSrc from "/src/components/react/button/large.tsx?raw";
 
-<PrimaryDisabled client:load />
-
-<Code code={`${primaryDisabledSource}`} lang="tsx" />
+<CodePreview code={largeSrc} lang="tsx">
+    <Large/>
+</CodePreview>
 
 ### Secondary
 
-<Secondary client:load />
+import { Secondary } from "/src/components/react/button/secondary";
+import secondarySrc from "/src/components/react/button/secondary.tsx?raw";
 
-<Code code={`${secondarySource}`} lang="tsx" />
+<CodePreview code={secondarySrc} lang="tsx">
+    <Secondary/>
+</CodePreview>
 
-### Secondary Disabled
+### Disabled
 
-<SecondaryDisabled client:load />
+import { Disabled } from "/src/components/react/button/disabled";
+import disabledSrc from "/src/components/react/button/disabled.tsx?raw";
 
-<Code code={`${secondaryDisabledSource}`} lang="tsx" />
+<CodePreview code={disabledSrc} lang="tsx">
+    <Disabled/>
+</CodePreview>
 
 ### With Icon
 
-<WithIcon client:load />
+import { WithIcon } from "/src/components/react/button/with-icon";
+import withIconSrc from "/src/components/react/button/with-icon.tsx?raw";
 
-<Code code={`${withIconSource}`} lang="tsx" />
+<CodePreview code={withIconSrc} lang="tsx">
+    <WithIcon/>
+</CodePreview>
+
+## API Reference
+<ApiReference config={[
+    {
+        prop: 'variant',
+        type: `"primary" | "secondary" | "tertiary" | "warning" | "icon"`,
+        default: 'primary'
+    },
+    {
+        prop: 'size',
+        type: `"lg" | "md"`,
+        default: 'md'
+    },
+    {
+        prop: 'icon',
+        type: 'JSX',
+        desc: 'Icon element to render inside the button'
+    },
+    {
+        prop: 'iconAlignment',
+        type: `"left"|"right"`,
+        default: "left",
+    }
+]}/>

@@ -3,22 +3,27 @@ title: Dropdown Menu
 description: Dropdown Menu
 ---
 
-## Usage
+import CodePreview from "/src/components/ui/codePreview.astro"
+import ApiReference from "/src/components/ui/apiReference.astro"
+import { Code } from "@astrojs/starlight/components";
 
 import { Default } from "/src/components/react/dropdown-menu/default";
-import { CustomTrigger } from "/src/components/react/dropdown-menu/custom-trigger";
-import { Code } from "@astrojs/starlight/components";
-import defaultDialogReactSource from "/src/components/react/dropdown-menu/default.tsx?raw";
-import customTriggerDialogReactSource from "/src/components/react/dropdown-menu/custom-trigger.tsx?raw";
+import defaultsrc from "/src/components/react/dropdown-menu/default.tsx?raw";
 
-### Default
+<CodePreview code={defaultsrc} lang="tsx">
+    <Default client:load/>
+</CodePreview>
 
-<Default client:load />
+## Installation
 
-<Code code={`${defaultDialogReactSource}`} lang="tsx" />
+<Code code={`npm install @rds/react-dropdown-menu`} frame="terminal" lang="sh" />
+
+## Examples
 
 ### Custom trigger
+import { CustomTrigger } from "/src/components/react/dropdown-menu/custom-trigger";
+import customTriggerSrc from "/src/components/react/dropdown-menu/custom-trigger.tsx?raw";
 
-<CustomTrigger client:load />
-
-<Code code={`${customTriggerDialogReactSource}`} lang="tsx" />
+<CodePreview code={customTriggerSrc} lang="tsx">
+    <CustomTrigger client:load/>
+</CodePreview>

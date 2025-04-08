@@ -3,33 +3,75 @@ title: Dialog
 description: A window overlaid on either the primary windo wor another dialog window, rendering the content underneath inert.
 ---
 
-## Usage
-
-import { Default as Dialog } from "/src/components/react/dialog/default";
-import dialogSource from "/src/components/react/dialog/default.tsx?raw";
-
-import { Modal } from "/src/components/react/dialog/modal";
-import modalSource from "/src/components/react/dialog/modal.tsx?raw";
-
-import { Large } from "/src/components/react/dialog/large";
-import largeModalSource from "/src/components/react/dialog/large.tsx?raw";
-
+import CodePreview from "/src/components/ui/codePreview.astro"
+import ApiReference from "/src/components/ui/apiReference.astro"
 import { Code } from "@astrojs/starlight/components";
 
-### Default
+import { Default } from "/src/components/react/dialog/default";
+import defaultSrc from "/src/components/react/dialog/default.tsx?raw";
 
-<Dialog client:load />
+<CodePreview code={defaultSrc} lang="tsx">
+    <Default client:load/>
+</CodePreview>
 
-<Code code={`${dialogSource}`} lang="tsx" />
+## Installation
+
+<Code code={`npm install @rds/react-dialog`} frame="terminal" lang="sh" />
+
+## Examples
 
 ### Modal
 
-<Modal client:load />
+import { Modal } from "/src/components/react/dialog/modal";
+import modalSrc from "/src/components/react/dialog/modal.tsx?raw";
 
-<Code code={`${modalSource}`} lang="tsx" />
+<CodePreview code={modalSrc} lang="tsx">
+    <Modal client:load/>
+</CodePreview>
 
-### Modal Large
+### Large
 
-<Large client:load />
+import { Large } from "/src/components/react/dialog/large";
+import largeSrc from "/src/components/react/dialog/large.tsx?raw";
 
-<Code code={`${largeModalSource}`} lang="tsx" />
+<CodePreview code={largeSrc} lang="tsx">
+    <Large client:load/>
+</CodePreview>
+
+## API Reference
+
+### Root
+
+<ApiReference config={[
+    {
+        prop: 'modal',
+        type: 'boolean',
+        default: 'false'
+    },
+    {
+        prop: 'size',
+        type: `"lg" | "md"`,
+        default: 'md'
+    },
+    {
+        prop: 'open',
+        type: 'boolean',
+        default: 'false',
+        desc: 'Controls the state of dialog'
+    },
+    {
+        prop: 'onOpenChange',
+        type: `(open: boolean) => void`,
+        desc: 'Event that is emitted everytime dialog state changes.'
+    }
+]}/>
+
+### Trigger
+
+- Trigger is a button and has same api as native ```<button/>```.
+- Provided onClick callback is called prior to opening the dialog. 
+
+### Close
+
+- Close is a button and has same api as native ```<button/>```.
+- Provided onClick callback is called prior to closing the dialog. 

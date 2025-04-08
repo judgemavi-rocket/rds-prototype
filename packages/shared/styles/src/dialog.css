@@ -1,7 +1,7 @@
 @import "./base.css";
 
 .rkt-dialog {
-  @apply fixed left-1/2 top-1/2 -translate-1/2 backdrop:bg-backdrop z-(--dialog-z-index) bg-white rounded-dialog p-6 shadow-(--dialog-shadow) max-w-[calc(100%-3rem)];
+  @apply fixed left-1/2 top-1/2 -translate-1/2 backdrop:bg-backdrop z-(--dialog-z-index) bg-white rounded-dialog p-6 shadow-(--dialog-shadow) max-w-[calc(100%-3rem)] text-secondary;
 }
 
 .rkt-dialog[data-size="md"] {
@@ -10,4 +10,8 @@
 
 .rkt-dialog[data-size="lg"] {
   @apply w-full;
+}
+
+.rkt-dialog__title {
+  @apply text-2xl text-black font-medium;
 }

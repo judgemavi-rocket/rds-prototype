@@ -1,0 +1,27 @@
+---
+import { Code, Tabs, TabItem } from "@astrojs/starlight/components";
+import type { string } from "astro:schema";
+
+interface Props {
+  code: string;
+  lang?: string;
+  highlights?: string[];
+}
+
+const { code, lang, highlights } = Astro.props;
+---
+
+<Tabs>
+  <TabItem label="Preview">
+    <div
+      class="flex justify-center border border-gray-300 rounded-md p-10 items-center min-h-[250px]"
+    >
+      <slot />
+    </div>
+  </TabItem>
+  <TabItem label="Code">
+    <div class="min-h-[250px]">
+      <Code code={code} lang={lang} mark={highlights} />
+    </div>
+  </TabItem>
+</Tabs>

@@ -1,0 +1,71 @@
+---
+title: Dialog
+description: Displays a Dialog
+---
+
+import "@rds/styles/dialog.css"
+import CodePreview from "/src/components/ui/codePreview.astro"
+import { Code } from "@astrojs/starlight/components";
+
+
+<CodePreview code={`
+   <dialog id="default-dialog" class='rkt-dialog'>
+        This is a sample dialog
+   </dialog>
+    <script>
+        const dialog = document.getElementById('default-dialog');
+        const dialogTrigger = document.getElementById('default-dialog-trigger');
+        dialogTrigger.addEventListener('click', () => {
+            dialog.showModal();
+        });
+    </script>
+   `} lang="html">
+    <dialog id="default-dialog" class='rkt-dialog'>
+        This is a sample dialog
+    </dialog>
+    <button id="default-dialog-trigger" class='bg-gray-100 border rounded-md p-2'>Open Dialog</button>
+    <script>
+        {`
+            const dialog = document.getElementById('default-dialog');
+            const dialogTrigger = document.getElementById('default-dialog-trigger');
+            dialogTrigger.addEventListener('click', () => {
+                dialog.showModal();
+            });
+        `}
+    </script>
+</CodePreview>
+
+## Installation
+
+<Code code={`npm install @rds/styles/dialog`} frame="terminal" lang="sh" />
+
+## Examples
+
+### Large
+
+<CodePreview code={`
+   <dialog id="large-dialog" class='rkt-dialog' data-size="lg">
+        This is a sample dialog
+   </dialog>
+    <script>
+        const dialog = document.getElementById('large-dialog');
+        const dialogTrigger = document.getElementById('large-dialog-trigger');
+        dialogTrigger.addEventListener('click', () => {
+            dialog.showModal();
+        });
+    </script>
+   `} lang="html">
+    <dialog id="large-dialog" class='rkt-dialog' data-size="lg">
+        This is a sample dialog
+    </dialog>
+    <button id="large-dialog-trigger" class='bg-gray-100 border rounded-md p-2'>Open Dialog</button>
+    <script>
+        {`
+            const large = document.getElementById('large-dialog');
+            const largeTrigger = document.getElementById('large-dialog-trigger');
+            largeTrigger.addEventListener('click', () => {
+                large.showModal();
+            });
+        `}
+    </script>
+</CodePreview>

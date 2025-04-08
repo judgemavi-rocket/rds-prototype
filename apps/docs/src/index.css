@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+:root {
+  --sl-text-h1: var(--text-3xl);
+  --sl-text-h2: var(--text-xl);
+  --sl-text-h3: var(--text-lg);
+  --sl-text-h5: var(--text-base);
+}

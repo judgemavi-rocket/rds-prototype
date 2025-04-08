@@ -1,5 +1,5 @@
 import { Button } from "@rds/react-button";
 
-export function PrimaryDisabled() {
+export function Disabled() {
   return <Button disabled>Disabled</Button>;
 }

@@ -7,12 +7,5 @@ const Icon = () => (
 );
 
 export function WithIcon() {
-  return (
-    <>
-      <Button icon={<Icon />}>Primary</Button>
-      <Button icon={<Icon />} iconAlignment="right">
-        Primary
-      </Button>
-    </>
-  );
+  return <Button icon={<Icon />}>Primary</Button>;
 }

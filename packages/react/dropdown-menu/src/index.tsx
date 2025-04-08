@@ -18,7 +18,11 @@ const DropdownMenuTrigger = forwardRef<
   return (
     <MenuButton
       {...props}
-      className={mergeClasses("dropdown-menu__trigger", props.className)}
+      className={
+        props.as
+          ? props.className
+          : mergeClasses("dropdown-menu__trigger", props.className)
+      }
       ref={ref}
     />
   );
@@ -33,7 +37,11 @@ const DropdownMenuContent = forwardRef<
       {...props}
       anchor={props.anchor || "bottom start"}
       as={props.as || "ul"}
-      className={mergeClasses("dropdown-menu__content", props.className)}
+      className={
+        props.as
+          ? props.className
+          : mergeClasses("dropdown-menu__content", props.className)
+      }
       ref={ref}
     />
   );
@@ -45,7 +53,11 @@ const DropdownMenuItem = forwardRef<HTMLElement, MenuItemProps<ElementType>>(
       <MenuItem
         {...props}
         as={props.as || "li"}
-        className={mergeClasses("dropdown-menu__item", props.className)}
+        className={
+          props.as
+            ? props.className
+            : mergeClasses("dropdown-menu__item", props.className)
+        }
         ref={ref}
       />
     );

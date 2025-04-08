@@ -1,0 +1,61 @@
+---
+title: Button
+description: Displays a button
+---
+import CodePreview from "/src/components/ui/codePreview.astro"
+import ApiReference from "/src/components/ui/apiReference.astro"
+import { Code } from "@astrojs/starlight/components";
+
+import { Default } from "/src/components/angular/button/default";
+import source from "/src/components/angular/button/default.ts?raw";
+
+<CodePreview code={`${source}`} lang="ts">
+    <Default/>
+</CodePreview>
+
+## Installation
+
+<Code code={`npm install @rds/angular-button`} frame="terminal" lang="sh" />
+
+## Examples
+
+### Large
+
+import { Large } from "/src/components/angular/button/large.ts";
+import largeSrc from "/src/components/angular/button/large.ts?raw";
+
+<CodePreview code={largeSrc} lang="ts">
+    <Large/>
+</CodePreview>
+
+### Secondary
+
+import { Secondary } from "/src/components/angular/button/secondary.ts";
+import secondarySrc from "/src/components/angular/button/secondary.ts?raw";
+
+<CodePreview code={secondarySrc} lang="ts">
+    <Secondary/>
+</CodePreview>
+
+### Disabled
+
+import { Disabled } from "/src/components/angular/button/disabled.ts";
+import disabledSrc from "/src/components/angular/button/disabled.ts?raw";
+
+<CodePreview code={disabledSrc} lang="ts">
+    <Disabled/>
+</CodePreview>
+
+## API Reference
+<ApiReference config={[
+    {
+        prop: 'variant',
+        type: `"primary" | "secondary" | "tertiary" | "warning" | "icon"`,
+        default: 'primary'
+    },
+    {
+        prop: 'size',
+        type: `"lg" | "md"`,
+        default: 'md'
+    },
+]}/>

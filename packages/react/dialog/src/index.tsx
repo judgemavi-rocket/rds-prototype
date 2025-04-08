@@ -6,6 +6,7 @@ import { mergeClasses } from "@rds/utils";
 import {
   type ButtonHTMLAttributes,
   type DialogHTMLAttributes,
+  HTMLAttributes,
   type MouseEventHandler,
   type PropsWithoutRef,
   type ReactNode,
@@ -168,11 +169,7 @@ const DialogContent = ({ className, ...props }: DialogContentProps) => {
   return (
     <dialog
       {...props}
-      className={mergeClasses(
-        "rkt-dialog",
-        modal && "rkt-dialog--modal",
-        className
-      )}
+      className={mergeClasses("rkt-dialog", className)}
       data-size={size}
       ref={dialogRef}
     />
@@ -205,11 +202,20 @@ const DialogClose = ({ onClick, type, ...props }: DialogCloseProps) => {
   return <Button {...props} type={type ?? "button"} onClick={handleClick} />;
 };
 
+type DialogTitleProps = HTMLAttributes<HTMLHeadingElement>;
+
+const DialogTitle = ({ className, ...props }: DialogTitleProps) => {
+  return (
+    <h2 className={mergeClasses("rkt-dialog__title", className)} {...props} />
+  );
+};
+
 export const Dialog = {
   Root: DialogRoot,
   Content: DialogContent,
   Trigger: DialogTrigger,
   Close: DialogClose,
+  Title: DialogTitle,
 };
 
 export type {
@@ -217,4 +223,5 @@ export type {
   DialogContentProps,
   DialogProps,
   DialogTriggerProps,
+  DialogTitleProps,
 };

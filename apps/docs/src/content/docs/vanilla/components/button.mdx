@@ -1,0 +1,51 @@
+---
+title: Button
+description: Displays a button
+---
+
+import "@rds/styles/button.css"
+import CodePreview from "/src/components/ui/codePreview.astro"
+import { Code } from "@astrojs/starlight/components";
+import ApiReference from "/src/components/ui/apiReference.astro"
+
+<CodePreview code={`<button class="rkt-button">Default</button>`} lang="html">
+    <button class="rkt-button">Default</button>
+</CodePreview>
+
+## Installation
+
+<Code code={`npm install @rds/styles/button`} frame="terminal" lang="sh" />
+
+## Examples
+
+### Large
+
+<CodePreview code={`<button class="rkt-button" data-size="lg">Large</button>`} lang="html">
+    <button class="rkt-button" data-size="lg">Large</button>
+</CodePreview>
+
+### Secondary
+
+<CodePreview code={`<button class="rkt-button" data-variant="secondary">Large</button>`} lang="html">
+    <button class="rkt-button" data-variant="secondary">Secondary</button>
+</CodePreview>
+
+### Disabled
+
+<CodePreview code={`<button class="rkt-button" disabled>Disabled</button>`} lang="html">
+    <button class="rkt-button" disabled>Large</button>
+</CodePreview>
+
+## API Reference
+<ApiReference config={[
+    {
+        prop: 'data-variant',
+        type: `"primary" | "secondary" | "tertiary" | "warning" | "icon"`,
+        default: 'primary'
+    },
+    {
+        prop: 'data-size',
+        type: `"lg" | "md"`,
+        default: 'md'
+    }
+]}/>

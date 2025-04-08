@@ -6,6 +6,7 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import starlightSidebarTopics from "starlight-sidebar-topics";
 import tailwindcss from "@tailwindcss/vite";
+import starlightThemeNova from "starlight-theme-nova";
 
 // https://astro.build/config
 export default defineConfig({
@@ -43,7 +44,7 @@ export default defineConfig({
             items: [
               {
                 label: "Getting Started",
-                link: "/react/get-started",
+                link: "/angular/get-started",
               },
               {
                 label: "Components",
@@ -53,8 +54,34 @@ export default defineConfig({
               },
             ],
           },
+          {
+            label: "Vanilla",
+            link: "/vanilla/get-started",
+            items: [
+              {
+                label: "Getting Started",
+                link: "/vanilla/get-started",
+              },
+              {
+                label: "Components",
+                autogenerate: {
+                  directory: "/vanilla/components",
+                },
+              },
+            ],
+          },
         ]),
+        starlightThemeNova(),
       ],
+      expressiveCode: {
+        themes: ["github-light-default", "github-dark-default"],
+        styleOverrides: {
+          borderRadius: "6px",
+          frames: {
+            frameBoxShadowCssValue: "none",
+          },
+        },
+      },
     }),
     mdx({
       syntaxHighlight: "prism",
