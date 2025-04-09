@@ -6,7 +6,7 @@ import { mergeClasses } from "@rds/utils";
 import {
   type ButtonHTMLAttributes,
   type DialogHTMLAttributes,
-  HTMLAttributes,
+  type HTMLAttributes,
   type MouseEventHandler,
   type PropsWithoutRef,
   type ReactNode,
@@ -202,6 +202,57 @@ const DialogClose = ({ onClick, type, ...props }: DialogCloseProps) => {
   return <Button {...props} type={type ?? "button"} onClick={handleClick} />;
 };
 
+type DialogDismissProps = ButtonHTMLAttributes<HTMLButtonElement>;
+
+const DialogDismiss = ({
+  className,
+  onClick,
+  type,
+  ...props
+}: DialogDismissProps) => {
+  const { closeDialog } = useDialog();
+
+  const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
+    onClick?.(event);
+    closeDialog();
+  };
+
+  return (
+    <button
+      {...props}
+      className={mergeClasses("rkt-dialog__close-xmark", className)}
+      onClick={handleClick}
+      type={type ?? "button"}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M18 6 6 18" />
+        <path d="m6 6 12 12" />
+      </svg>
+    </button>
+  );
+};
+
+type DialogActionsProps = HTMLAttributes<HTMLDivElement>;
+
+const DialogActions = ({ className, ...props }: DialogActionsProps) => {
+  return (
+    <div
+      {...props}
+      className={mergeClasses("rkt-dialog__actions", className)}
+    />
+  );
+};
+
 type DialogTitleProps = HTMLAttributes<HTMLHeadingElement>;
 
 const DialogTitle = ({ className, ...props }: DialogTitleProps) => {
@@ -211,17 +262,19 @@ const DialogTitle = ({ className, ...props }: DialogTitleProps) => {
 };
 
 export const Dialog = {
-  Root: DialogRoot,
-  Content: DialogContent,
-  Trigger: DialogTrigger,
+  Actions: DialogActions,
   Close: DialogClose,
+  Content: DialogContent,
+  Dismiss: DialogDismiss,
+  Root: DialogRoot,
   Title: DialogTitle,
+  Trigger: DialogTrigger,
 };
 
 export type {
   DialogCloseProps,
   DialogContentProps,
   DialogProps,
-  DialogTriggerProps,
   DialogTitleProps,
+  DialogTriggerProps,
 };
