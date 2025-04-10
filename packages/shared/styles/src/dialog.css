@@ -10,6 +10,16 @@
   @apply w-full;
 }
 
+.rkt-dialog__actions {
+  @apply mt-8;
+}
+
 .rkt-dialog__title {
-  @apply text-2xl text-black font-medium;
+  @apply text-2xl text-black font-medium mb-2;
+}
+
+.rkt-dialog__close-xmark {
+  @apply absolute top-6 right-6 p-0.5 cursor-pointer rounded-full focus-visible:outline-0
+  focus-visible:bg-pressed-secondary
+  focus-visible:ring-brand-slate focus-visible:ring-2;
 }
