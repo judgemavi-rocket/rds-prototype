@@ -3,9 +3,9 @@ title: Dropdown Menu
 description: Dropdown Menu
 ---
 
-import CodePreview from "/src/components/ui/codePreview.astro"
-import ApiReference from "/src/components/ui/apiReference.astro"
 import { Code } from "@astrojs/starlight/components";
+import ApiReference from "/src/components/ui/apiReference.astro";
+import CodePreview from "/src/components/ui/codePreview.astro";
 
 import { Default } from "/src/components/react/dropdown-menu/default";
 import defaultsrc from "/src/components/react/dropdown-menu/default.tsx?raw";
@@ -26,4 +26,28 @@ import customTriggerSrc from "/src/components/react/dropdown-menu/custom-trigger
 
 <CodePreview code={customTriggerSrc} lang="tsx">
     <CustomTrigger client:load/>
+</CodePreview>
+
+### With Separators
+import { WithSeparators } from "/src/components/react/dropdown-menu/with-separators";
+import withSeparatorsSrc from "/src/components/react/dropdown-menu/with-separators.tsx?raw";
+
+<CodePreview code={withSeparatorsSrc} lang="tsx">
+    <WithSeparators client:load/>
+</CodePreview>
+
+### With Icons
+import { WithIcons } from "/src/components/react/dropdown-menu/with-icons";
+import withIconsSrc from "/src/components/react/dropdown-menu/with-icons.tsx?raw";
+
+<CodePreview code={withIconsSrc} lang="tsx">
+    <WithIcons client:load/>
+</CodePreview>
+
+### Disabled
+import { Disabled } from "/src/components/react/dropdown-menu/disabled";
+import disabledSrc from "/src/components/react/dropdown-menu/disabled.tsx?raw";
+
+<CodePreview code={disabledSrc} lang="tsx">
+    <Disabled client:load/>
 </CodePreview>
