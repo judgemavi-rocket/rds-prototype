@@ -1,19 +1,17 @@
 import {
   Menu,
   MenuButton,
-  MenuButtonProps,
   MenuItem,
-  MenuItemProps,
   MenuItems,
-  MenuItemsProps,
+  MenuSeparator,
 } from "@headlessui/react";
 import "@rds/styles/dropdown-menu.css";
 import { mergeClasses } from "@rds/utils";
-import { ElementType, forwardRef } from "react";
+import { type ComponentProps, forwardRef } from "react";
 
 const DropdownMenuTrigger = forwardRef<
   HTMLButtonElement,
-  MenuButtonProps<ElementType>
+  ComponentProps<typeof MenuButton>
 >((props, ref) => {
   return (
     <MenuButton
@@ -30,7 +28,7 @@ const DropdownMenuTrigger = forwardRef<
 
 const DropdownMenuContent = forwardRef<
   HTMLElement,
-  MenuItemsProps<ElementType>
+  ComponentProps<typeof MenuItems>
 >((props, ref) => {
   return (
     <MenuItems
@@ -47,26 +45,46 @@ const DropdownMenuContent = forwardRef<
   );
 });
 
-const DropdownMenuItem = forwardRef<HTMLElement, MenuItemProps<ElementType>>(
-  (props, ref) => {
-    return (
-      <MenuItem
-        {...props}
-        as={props.as || "li"}
-        className={
-          props.as
-            ? props.className
-            : mergeClasses("dropdown-menu__item", props.className)
-        }
-        ref={ref}
-      />
-    );
-  }
-);
+const DropdownMenuItem = forwardRef<
+  HTMLElement,
+  ComponentProps<typeof MenuItem>
+>((props, ref) => {
+  return (
+    <MenuItem
+      {...props}
+      as={props.as || "li"}
+      className={
+        props.as
+          ? props.className
+          : mergeClasses("dropdown-menu__item", props.className)
+      }
+      ref={ref}
+    />
+  );
+});
+
+const DropdownMenuSeparator = forwardRef<
+  HTMLElement,
+  ComponentProps<typeof MenuSeparator>
+>((props, ref) => {
+  return (
+    <MenuSeparator
+      {...props}
+      as={props.as ?? "hr"}
+      className={
+        props.as
+          ? props.className
+          : mergeClasses("dropdown-menu__separator", props.className)
+      }
+      ref={ref}
+    />
+  );
+});
 
 export const DropdownMenu = {
-  Root: Menu,
-  Trigger: DropdownMenuTrigger,
   Content: DropdownMenuContent,
   Item: DropdownMenuItem,
+  Root: Menu,
+  Separator: DropdownMenuSeparator,
+  Trigger: DropdownMenuTrigger,
 };
