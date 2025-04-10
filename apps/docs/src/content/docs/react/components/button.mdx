@@ -2,9 +2,9 @@
 title: Button
 description: Displays a button
 ---
-import CodePreview from "/src/components/ui/codePreview.astro"
-import ApiReference from "/src/components/ui/apiReference.astro"
 import { Code } from "@astrojs/starlight/components";
+import ApiReference from "/src/components/ui/apiReference.astro";
+import CodePreview from "/src/components/ui/codePreview.astro";
 
 import { Default } from "/src/components/react/button/default";
 import defaultSrc from "/src/components/react/button/default.tsx?raw";
@@ -66,15 +66,5 @@ import withIconSrc from "/src/components/react/button/with-icon.tsx?raw";
         prop: 'size',
         type: `"lg" | "md"`,
         default: 'md'
-    },
-    {
-        prop: 'icon',
-        type: 'JSX',
-        desc: 'Icon element to render inside the button'
-    },
-    {
-        prop: 'iconAlignment',
-        type: `"left"|"right"`,
-        default: "left",
     }
 ]}/>
