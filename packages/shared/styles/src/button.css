@@ -1,7 +1,7 @@
 @import "./base.css";
 
 .rkt-button {
-  @apply rounded-full border-transparent text-white font-medium text-base/6 flex justify-center items-center gap-2
+  @apply w-fit rounded-full border-transparent text-white font-medium text-base/6 flex items-center gap-2
     disabled:cursor-default
     focus-visible:outline-0
     hover:cursor-pointer
@@ -12,20 +12,32 @@
     hover:bg-active-primary
     /* default size md */
     py-3 px-5;
+
+  /* Default icon size */
+  @apply [&>svg]:size-6;
+
+  /* Icon only button */
+  &:has(svg:only-child) {
+    @apply px-3;
+  }
+
+  /* Icon at start (first child is svg) */
+  &:has(svg:first-child):not(:has(svg:only-child)) {
+    @apply pl-4.5;
+  }
+
+  /* Icon at end (last child is svg) */
+  &:has(svg:last-child):not(:has(svg:only-child)) {
+    @apply pr-4.5;
+  }
 }
 
+.rkt-button--large,
 .rkt-button[data-size="lg"] {
   @apply px-6 py-4;
 }
 
-.rkt-button[data-icon-alignment="left"] {
-  @apply pl-4.5;
-}
-
-.rkt-button[data-icon-alignment="right"] {
-  @apply pr-4.5;
-}
-
+.rkt-button--secondary,
 .rkt-button[data-variant="secondary"] {
   @apply bg-transparent text-brand-slate inset-ring-[1.5px] inset-ring-brand-slate
     active:bg-pressed-secondary

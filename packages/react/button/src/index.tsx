@@ -1,42 +1,64 @@
+import { Slot } from "@rds/react-slot";
 import "@rds/styles/button.css";
 import { mergeClasses } from "@rds/utils";
-import { ButtonHTMLAttributes, forwardRef, ReactElement } from "react";
+import {
+  type ButtonHTMLAttributes,
+  Children,
+  type ComponentRef,
+  ElementType,
+  forwardRef,
+  type ReactElement,
+} from "react";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  icon?: ReactElement;
-  iconAlignment?: "left" | "right";
   size?: "lg" | "md";
   variant?: "primary" | "secondary" | "tertiary" | "warning" | "icon";
+  asChild?: boolean;
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = forwardRef<ComponentRef<"button">, ButtonProps>(
   (
     {
       className,
       children,
       size = "md",
       variant = "primary",
-      icon,
-      iconAlignment = "left",
+      asChild,
       ...props
     },
     ref
   ) => {
-    return (
-      <button
-        className={mergeClasses("rkt-button", className)}
-        ref={ref}
-        {...props}
-        data-size={size}
-        data-variant={variant}
-        data-with-icon={!!icon && variant !== "icon" ? true : undefined}
-        data-icon-alignment={icon ? iconAlignment : undefined}
-      >
-        {icon && iconAlignment === "left" ? icon : null}
-        {children}
-        {icon && iconAlignment === "right" ? icon : null}
-      </button>
+    const buttonClassName = mergeClasses(
+      "rkt-button",
+      size === "lg" && "rkt-button--large",
+      variant === "secondary" && "rkt-button--secondary",
+      variant === "tertiary" && "rkt-button--tertiary",
+      variant === "warning" && "rkt-button--warning",
+      variant === "icon" && "rkt-button--icon",
+      className
     );
+
+    const buttonProps = {
+      ...props,
+      className: buttonClassName,
+      "data-size": size,
+      "data-variant": variant,
+      ref,
+    };
+
+    if (asChild && Children.count(children) === 1) {
+      const child = Children.only(children) as ReactElement<any, ElementType>;
+      return <Slot {...buttonProps}>{child}</Slot>;
+    }
+
+    const wrappedChildren = Children.map(children, (child) => {
+      if (typeof child === "string" || typeof child === "number") {
+        return <span>{child}</span>;
+      }
+      return child;
+    });
+
+    return <button {...buttonProps}>{wrappedChildren}</button>;
   }
 );
 
