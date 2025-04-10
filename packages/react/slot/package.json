@@ -1,5 +1,5 @@
 {
-  "name": "@rds/react-button",
+  "name": "@rds/react-slot",
   "version": "1.0.0",
   "exports": {
     ".": {
@@ -29,7 +29,7 @@
   },
   "keywords": [
     "react",
-    "button",
+    "slot",
     "accessibility",
     "typescript",
     "headless",
@@ -37,8 +37,9 @@
     "composable"
   ],
   "dependencies": {
-    "@rds/styles": "*",
-    "@rds/react-slot": "workspace:*",
+    "@rds/utils": "workspace:*"
+  },
+  "peerDependencies": {
     "react": "^19.1.0"
   }
 }
