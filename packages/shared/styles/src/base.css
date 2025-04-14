@@ -1,7 +1,11 @@
 @import "tailwindcss";
 
+:root {
+  --rkt-brand-color: #910d2;
+}
+
 @theme {
-  --color-brand-primary: #910d22;
+  --color-brand-primary: var(--rkt-brand-color);
   --color-pressed-primary: #c12a36;
   --color-active-primary: #de3341;
   --color-hovered-secondary: #f2f2f2;

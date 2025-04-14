@@ -5,7 +5,7 @@ description: Displays a button
 
 import "@rds/styles/button.css"
 import CodePreview from "/src/components/ui/codePreview.astro"
-import { Code } from "@astrojs/starlight/components";
+import { Code, Tabs, TabItem } from "@astrojs/starlight/components";
 import ApiReference from "/src/components/ui/apiReference.astro"
 
 <CodePreview code={`<button class="rkt-button">Default</button>`} lang="html">
@@ -14,7 +14,15 @@ import ApiReference from "/src/components/ui/apiReference.astro"
 
 ## Installation
 
-<Code code={`npm install @rds/styles/button`} frame="terminal" lang="sh" />
+<Tabs>
+    <TabItem label="Node">
+        <Code code={`npm install @rds/styles/button`} frame="terminal" lang="sh" />
+    </TabItem>
+    <TabItem label="Html">
+        <Code code={`<link rel="stylesheet" href="/path-to-import/rds/styles/button.css"/>`} lang="html" />
+    </TabItem>
+</Tabs>
+
 
 ## Examples
 

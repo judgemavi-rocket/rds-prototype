@@ -3,15 +3,17 @@ title: Dialog
 description: Displays a Dialog
 ---
 
+import "@rds/styles/button.css"
 import "@rds/styles/dialog.css"
 import CodePreview from "/src/components/ui/codePreview.astro"
-import { Code } from "@astrojs/starlight/components";
-
+import { Code, Tabs, TabItem } from "@astrojs/starlight/components";
+import ApiReference from "/src/components/ui/apiReference.astro"
 
 <CodePreview code={`
    <dialog id="default-dialog" class='rkt-dialog'>
-        <span class="rkt-dialog__title">Title</span>
+        <h2 class="rkt-dialog__title">Title</h2>
         <p>This is a sample dialog</p>
+        <button id="default-close" class='rkt-button'>Done</button>
    </dialog>
     <script>
         const dialog = document.getElementById('default-dialog');
@@ -19,13 +21,18 @@ import { Code } from "@astrojs/starlight/components";
         dialogTrigger.addEventListener('click', () => {
             dialog.showModal();
         });
+        const dialogClose = document.getElementById('default-close');
+        dialogClose.addEventListener('click', () => {
+            dialog.close();
+        });
     </script>
    `} lang="html">
     <dialog id="default-dialog" class='rkt-dialog'>
-        <span class="rkt-dialog__title">Title</span>
+        <h2 class="rkt-dialog__title">Title</h2>
         <p>This is a sample dialog</p>
+        <button id="default-close" class='rkt-button'>Done</button>
     </dialog>
-    <button id="default-dialog-trigger" class='bg-gray-100 border rounded-md p-2'>Open Dialog</button>
+    <button id="default-dialog-trigger" class='rkt-button'>Open Dialog</button>
     <script>
         {`
             const dialog = document.getElementById('default-dialog');
@@ -33,13 +40,26 @@ import { Code } from "@astrojs/starlight/components";
             dialogTrigger.addEventListener('click', () => {
                 dialog.showModal();
             });
+            const dialogClose = document.getElementById('default-close');
+            dialogClose.addEventListener('click', () => {
+                dialog.close();
+            });
         `}
     </script>
 </CodePreview>
 
 ## Installation
 
-<Code code={`npm install @rds/styles/dialog`} frame="terminal" lang="sh" />
+<Tabs>
+    <TabItem label="Node">
+        <Code code={`npm install @rds/styles/dialog`} frame="terminal" lang="sh" />
+    </TabItem>
+    <TabItem label="Html">
+        <Code code={`<link rel="stylesheet" href="/path-to-import/rds/styles/dialog.css"/>`} lang="html" />
+    </TabItem>
+</Tabs>
+
+
 
 ## Examples
 
@@ -47,7 +67,9 @@ import { Code } from "@astrojs/starlight/components";
 
 <CodePreview code={`
    <dialog id="large-dialog" class='rkt-dialog' data-size="lg">
+        <h2 class="rkt-dialog__title">Title</h2>
         <p>This is a large dialog</p>
+        <button class='rkt-button'>Done</button>
    </dialog>
     <script>
         const dialog = document.getElementById('large-dialog');
@@ -55,12 +77,18 @@ import { Code } from "@astrojs/starlight/components";
         dialogTrigger.addEventListener('click', () => {
             dialog.showModal();
         });
+        const largeClose = document.getElementById('large-close');
+        largeClose.addEventListener('click', () => {
+            dialog.close();
+        });
     </script>
    `} lang="html">
     <dialog id="large-dialog" class='rkt-dialog' data-size="lg">
+        <h2 class="rkt-dialog__title">Title</h2>
         <p>This is a large dialog</p>
+        <button id="large-close" class='rkt-button'>Done</button>
     </dialog>
-    <button id="large-dialog-trigger" class='bg-gray-100 border rounded-md p-2'>Open Dialog</button>
+    <button id="large-dialog-trigger" class='rkt-button'>Open Dialog</button>
     <script>
         {`
             const large = document.getElementById('large-dialog');
@@ -68,6 +96,19 @@ import { Code } from "@astrojs/starlight/components";
             largeTrigger.addEventListener('click', () => {
                 large.showModal();
             });
+            const largeClose = document.getElementById('large-close');
+            largeClose.addEventListener('click', () => {
+                large.close();
+            });
         `}
     </script>
 </CodePreview>
+
+## API Reference
+<ApiReference config={[
+    {
+        prop: 'data-size',
+        type: `"lg" | "md"`,
+        default: 'md'
+    },
+]}/>

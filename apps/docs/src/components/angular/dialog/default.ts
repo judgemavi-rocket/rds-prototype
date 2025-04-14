@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { ButtonComponent } from "@rds/angular-button";
 import {
   DialogComponent,
   DialogContentComponent,
@@ -16,14 +17,15 @@ import {
     DialogTriggerDirective,
     DialogCloseDirective,
     DialogTitleComponent,
+    ButtonComponent,
   ],
   template: `
     <rkt-dialog>
-      <button rktDialogTrigger>Open dialog</button>
+      <button rktButton rktDialogTrigger>Open dialog</button>
       <rkt-dialog-content>
         <rkt-dialog-title>Title</rkt-dialog-title>
-        <p>Hello world dialog</p>
-        <button rktDialogClose>Close</button>
+        <p>Loreum ipsum</p>
+        <button rktButton rktDialogClose>Close</button>
       </rkt-dialog-content>
     </rkt-dialog>
   `,

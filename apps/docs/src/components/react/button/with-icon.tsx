@@ -7,5 +7,5 @@ const Icon = () => (
 );
 
 export function WithIcon() {
-  return <Button icon={<Icon />}>Primary</Button>;
+  return <Button icon={<Icon />}>With Icon</Button>;
 }

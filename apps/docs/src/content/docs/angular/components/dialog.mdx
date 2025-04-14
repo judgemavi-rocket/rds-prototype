@@ -38,3 +38,39 @@ import largeSrc from "/src/components/angular/dialog/large.ts?raw";
 <CodePreview code={`${largeSrc}`} lang="ts">
     <Large client:load/>
 </CodePreview>
+
+## API Reference
+
+### Root
+
+<ApiReference config={[
+    {
+        prop: 'modal',
+        type: 'boolean',
+        default: 'false'
+    },
+    {
+        prop: 'size',
+        type: `"lg" | "md"`,
+        default: 'md'
+    },
+    {
+        prop: 'open',
+        type: 'boolean',
+        default: 'false',
+        desc: 'Controls the state of dialog'
+    },
+    {
+        prop: 'onOpenChange',
+        type: `(open: boolean) => void`,
+        desc: 'Event that is emitted everytime dialog state changes.'
+    }
+]}/>
+
+### Trigger
+
+- Trigger is a directive that trigger dialog to open.
+
+### Close
+
+- Trigger is a directive that trigger dialog to close.

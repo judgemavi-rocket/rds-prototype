@@ -3,3 +3,4 @@ packages:
   - "packages/react/*"
   - "packages/angular/*"
   - "packages/shared/*"
+  - "packages/codemods/*"

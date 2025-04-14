@@ -5,6 +5,6 @@ import { ButtonComponent } from "@rds/angular-button";
   selector: "app-button-demo",
   standalone: true,
   imports: [ButtonComponent],
-  template: `<button rkt-button disabled>Disabled</button>`,
+  template: `<button rktButton disabled>Disabled</button>`,
 })
 export class Disabled {}
