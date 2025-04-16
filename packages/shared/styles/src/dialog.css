@@ -1,25 +1,50 @@
 @import "./base.css";
 
 .rkt-dialog {
-  @apply fixed left-1/2 top-1/2 -translate-1/2 backdrop:bg-backdrop bg-white rounded-dialog p-6 shadow-dialog max-w-[calc(100%-3rem)] text-secondary z-[999]
-  /* default size md */
-  w-96;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-white);
+  border-radius: var(--radius-dialog);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-dialog);
+  max-width: calc(100% - 3rem);
+  color: var(--color-secondary);
+  z-index: 999;
+  width: 24rem; /* default size md */
+}
+
+.rkt-dialog::backdrop {
+  background-color: var(--color-backdrop);
 }
 
 .rkt-dialog[data-size="lg"] {
-  @apply w-full;
+  width: 100%;
 }
 
 .rkt-dialog__actions {
-  @apply mt-8;
+  margin-top: 2rem;
 }
 
 .rkt-dialog__title {
-  @apply text-2xl text-black font-medium mb-2;
+  font-size: 1.5rem;
+  color: black;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
 }
 
 .rkt-dialog__close-xmark {
-  @apply absolute top-6 right-6 p-0.5 cursor-pointer rounded-full focus-visible:outline-0
-  focus-visible:bg-pressed-secondary
-  focus-visible:ring-brand-slate focus-visible:ring-2;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 0.125rem;
+  cursor: pointer;
+  border-radius: 9999px;
+}
+
+.rkt-dialog__close-xmark:focus-visible {
+  outline: 0;
+  background-color: var(--color-pressed-secondary);
+  box-shadow: 0 0 0 2px var(--color-brand-slate);
 }
