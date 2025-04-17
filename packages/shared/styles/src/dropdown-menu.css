@@ -1,18 +1,59 @@
 @import "./base.css";
 
 .dropdown-menu__content {
-  @apply bg-white rounded-2xl shadow-dialog p-2 min-w-[180px] border border-[#0000000a] z-10 flex flex-col items-center focus:outline-none;
+  background-color: var(--color-white);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-dialog);
+  padding: 0.5rem;
+  min-width: 180px;
+  border: 1px solid var(--color-disabled);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dropdown-menu__content:focus {
+  outline: none;
 }
 
 .dropdown-menu__item {
-  @apply min-w-60 p-5 cursor-pointer rounded-lg text-brand-slate flex items-center gap-x-4 font-medium [&>svg]:size-6 hover:bg-[#f7f7f7] data-[focus]:bg-[#f7f7f7];
+  min-width: 15rem;
+  padding: 1.25rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  color: var(--color-brand-slate);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 500;
+}
+
+.dropdown-menu__item > svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.dropdown-menu__item:hover:not(:disabled):not([data-disabled]) {
+  background-color: #f7f7f7;
+}
+
+.dropdown-menu__item[data-focus] {
+  background-color: #f7f7f7;
 }
 
 .dropdown-menu__item[data-disabled],
 .dropdown-menu__item:disabled {
-  @apply opacity-40 cursor-not-allowed hover:bg-transparent;
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.dropdown-menu__item[data-disabled]:hover,
+.dropdown-menu__item:disabled:hover {
+  background-color: transparent;
 }
 
 .dropdown-menu__separator {
-  @apply border-t border-t-hovered-secondary w-[calc(100%-1.5rem)];
+  border-top: 1px solid var(--color-hovered-secondary);
+  width: calc(100% - 1.5rem);
 }

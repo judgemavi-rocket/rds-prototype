@@ -1,47 +1,94 @@
 @import "./base.css";
 
 .rkt-button {
-  @apply w-fit rounded-full border-transparent text-white font-medium text-base/6 flex items-center gap-2
-    disabled:cursor-default
-    focus-visible:outline-0
-    hover:cursor-pointer
-    /* default variant primary */
-    bg-brand-slate active:bg-pressed-primary
-    disabled:bg-disabled disabled:text-disabled-fg
-    focus-visible:inset-ring-active-primary focus-visible:inset-ring-3
-    hover:bg-active-primary
-    /* default size md */
-    py-3 px-5;
-
-  /* Default icon size */
-  @apply [&>svg]:size-6;
-
-  /* Icon only button */
-  &:has(svg:only-child) {
-    @apply px-3;
-  }
-
-  /* Icon at start (first child is svg) */
-  &:has(svg:first-child):not(:has(svg:only-child)) {
-    @apply pl-4.5;
-  }
-
-  /* Icon at end (last child is svg) */
-  &:has(svg:last-child):not(:has(svg:only-child)) {
-    @apply pr-4.5;
-  }
+  width: fit-content;
+  border-radius: 9999px;
+  border: transparent;
+  color: var(--color-white);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-brand-slate);
+  padding: 0.75rem 1.25rem;
 }
 
+.rkt-button:disabled {
+  cursor: default;
+  background-color: var(--color-disabled);
+  color: var(--color-disabled-fg);
+}
+
+.rkt-button:focus-visible {
+  outline: 0;
+  box-shadow: inset 0 0 0 3px var(--color-active-primary);
+}
+
+.rkt-button:hover:not(:disabled) {
+  cursor: pointer;
+  background-color: var(--color-active-primary);
+}
+
+.rkt-button:active:not(:disabled) {
+  background-color: var(--color-pressed-primary);
+}
+
+/* Default icon size */
+.rkt-button > svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Icon only button */
+.rkt-button:has(svg:only-child) {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+/* Icon at start */
+.rkt-button:has(svg:first-child):not(:has(svg:only-child)) {
+  padding-left: 1.125rem;
+}
+
+/* Icon at end */
+.rkt-button:has(svg:last-child):not(:has(svg:only-child)) {
+  padding-right: 1.125rem;
+}
+
+/* Large size variant */
 .rkt-button--large,
 .rkt-button[data-size="lg"] {
-  @apply px-6 py-4;
+  padding: 1rem 1.5rem;
 }
 
+/* Secondary variant */
 .rkt-button--secondary,
 .rkt-button[data-variant="secondary"] {
-  @apply bg-transparent text-brand-slate inset-ring-[1.5px] inset-ring-brand-slate
-    active:bg-pressed-secondary
-    disabled:bg-disabled disabled:text-disabled-fg disabled:inset-ring-disabled-fg
-    focus-visible:inset-ring-brand-slate focus-visible:inset-ring-3
-    hover:bg-hovered-secondary;
+  background-color: transparent;
+  color: var(--color-brand-slate);
+  box-shadow: inset 0 0 0 1.5px var(--color-brand-slate);
+}
+
+.rkt-button--secondary:hover:not(:disabled),
+.rkt-button[data-variant="secondary"]:hover:not(:disabled) {
+  background-color: var(--color-hovered-secondary);
+}
+
+.rkt-button--secondary:active:not(:disabled),
+.rkt-button[data-variant="secondary"]:active:not(:disabled) {
+  background-color: var(--color-pressed-secondary);
+}
+
+.rkt-button--secondary:disabled,
+.rkt-button[data-variant="secondary"]:disabled {
+  background-color: var(--color-disabled);
+  color: var(--color-disabled-fg);
+  box-shadow: inset 0 0 0 1.5px var(--color-disabled-fg);
+}
+
+.rkt-button--secondary:focus-visible,
+.rkt-button[data-variant="secondary"]:focus-visible {
+  box-shadow: inset 0 0 0 3px var(--color-brand-slate);
 }

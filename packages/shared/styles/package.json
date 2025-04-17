@@ -2,18 +2,9 @@
   "name": "@rds/styles",
   "version": "1.0.0",
   "exports": {
-    "./*.css": "./dist/*.css"
+    "./*.css": "./src/*.css"
   },
   "files": [
-    "dist"
-  ],
-  "scripts": {
-    "build": "mkdir -p dist && for file in src/*.css; do pnpm tailwindcss -i $file -o dist/$(basename $file); done",
-    "dev": "mkdir -p dist && for file in src/*.css; do pnpm tailwindcss -i $file -o dist/$(basename $file); done",
-    "clean": "rm -rf dist"
-  },
-  "dependencies": {
-    "@tailwindcss/cli": "^4.1.1",
-    "tailwindcss": "^4.1.1"
-  }
+    "src"
+  ]
 }
