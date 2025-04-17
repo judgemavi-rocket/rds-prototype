@@ -26,7 +26,6 @@
     "@astrojs/starlight": "^0.32.5",
     "@rds/angular-button": "workspace:*",
     "@rds/angular-dialog": "workspace:*",
-    "@rds/angular-dropdown-menu": "workspace:*",
     "@rds/react-button": "workspace:*",
     "@rds/react-dialog": "workspace:*",
     "@rds/react-dropdown-menu": "workspace:*",
