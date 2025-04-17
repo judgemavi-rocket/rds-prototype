@@ -142,3 +142,33 @@
 .rkt-button:focus-visible {
   box-shadow: inset 0 0 0 3px var(--color-warning-ring);
 }
+
+/* Warning outline variant */
+.rkt-button--warning-outline,
+.rkt-button[data-variant="warning-outline"] {
+  background-color: transparent;
+  color: var(--color-warning-fg);
+  box-shadow: inset 0 0 0 1.5px var(--color-warning-ring);
+}
+
+.rkt-button--warning-outline:hover:not(:disabled),
+.rkt-button[data-variant="warning-outline"]:hover:not(:disabled) {
+  background-color: var(--color-hovered-warning);
+}
+
+.rkt-button--warning-outline:active:not(:disabled),
+.rkt-button[data-variant="warning-outline"]:active:not(:disabled) {
+  background-color: var(--color-pressed-warning);
+}
+
+.rkt-button--warning-outline:disabled,
+.rkt-button[data-variant="warning-outline"]:disabled {
+  background-color: var(--color-disabled);
+  color: var(--color-disabled-fg);
+  box-shadow: inset 0 0 0 1.5px var(--color-disabled-fg);
+}
+
+.rkt-button--warning-outline:focus-visible,
+.rkt-button[data-variant="warning-outline"]:focus-visible {
+  box-shadow: inset 0 0 0 3px var(--color-warning-ring);
+}

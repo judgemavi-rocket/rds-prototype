@@ -12,7 +12,13 @@ import {
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "lg" | "md";
-  variant?: "primary" | "secondary" | "tertiary" | "warning" | "icon";
+  variant?:
+    | "primary"
+    | "secondary"
+    | "tertiary"
+    | "warning"
+    | "warning-outline"
+    | "icon";
   asChild?: boolean;
 }
 
@@ -34,6 +40,7 @@ export const Button = forwardRef<ComponentRef<"button">, ButtonProps>(
       variant === "secondary" && "rkt-button--secondary",
       variant === "tertiary" && "rkt-button--tertiary",
       variant === "warning" && "rkt-button--warning",
+      variant === "warning-outline" && "rkt-button--warning-outline",
       variant === "icon" && "rkt-button--icon",
       className
     );
