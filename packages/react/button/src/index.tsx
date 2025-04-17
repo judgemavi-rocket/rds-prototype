@@ -52,9 +52,13 @@ export const Button = forwardRef<ComponentRef<"button">, ButtonProps>(
     }
 
     const wrappedChildren = Children.map(children, (child) => {
-      if (typeof child === "string" || typeof child === "number") {
+      if (
+        Children.count(children) > 1 &&
+        (typeof child === "string" || typeof child === "number")
+      ) {
         return <span>{child}</span>;
       }
+
       return child;
     });
 
