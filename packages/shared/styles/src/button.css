@@ -92,3 +92,21 @@
 .rkt-button[data-variant="secondary"]:focus-visible {
   box-shadow: inset 0 0 0 3px var(--color-brand-slate);
 }
+
+/* Tertiary variant */
+.rkt-button--tertiary,
+.rkt-button[data-variant="tertiary"] {
+  background-color: transparent;
+  color: var(--color-brand-slate);
+}
+
+.rkt-button--tertiary:hover:not(:disabled),
+.rkt-button[data-variant="tertiary"]:hover:not(:disabled) {
+  background-color: var(--color-hovered-secondary);
+}
+
+.rkt-button--tertiary:disabled,
+.rkt-button[data-variant="tertiary"]:disabled {
+  background-color: var(--color-disabled);
+  color: var(--color-disabled-fg);
+}
