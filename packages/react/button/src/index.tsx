@@ -10,11 +10,25 @@ import {
   type ReactElement,
 } from "react";
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  size?: "lg" | "md";
-  variant?: "primary" | "secondary" | "tertiary" | "warning" | "icon";
-  asChild?: boolean;
-}
+type ButtonVariants =
+  | {
+      size?: "lg" | "md";
+      variant?:
+        | "primary"
+        | "secondary"
+        | "tertiary"
+        | "warning"
+        | "warning-outline";
+    }
+  | {
+      size?: "lg" | "md" | "sm";
+      variant: "icon" | "icon-transparent";
+    };
+
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
+  ButtonVariants & {
+    asChild?: boolean;
+  };
 
 export const Button = forwardRef<ComponentRef<"button">, ButtonProps>(
   (
@@ -29,12 +43,24 @@ export const Button = forwardRef<ComponentRef<"button">, ButtonProps>(
     ref
   ) => {
     const buttonClassName = mergeClasses(
+      /* Base */
       "rkt-button",
+
+      /* Size */
+      size === "sm" && "rkt-button--small",
+      size === "md" && "rkt-button--medium",
       size === "lg" && "rkt-button--large",
+
+      /* Variant */
       variant === "secondary" && "rkt-button--secondary",
       variant === "tertiary" && "rkt-button--tertiary",
       variant === "warning" && "rkt-button--warning",
+      variant === "warning-outline" && "rkt-button--warning-outline",
       variant === "icon" && "rkt-button--icon",
+      variant === "icon-transparent" &&
+        "rkt-button--icon rkt-button--icon-transparent",
+
+      /* Custom */
       className
     );
 
@@ -52,9 +78,13 @@ export const Button = forwardRef<ComponentRef<"button">, ButtonProps>(
     }
 
     const wrappedChildren = Children.map(children, (child) => {
-      if (typeof child === "string" || typeof child === "number") {
+      if (
+        Children.count(children) > 1 &&
+        (typeof child === "string" || typeof child === "number")
+      ) {
         return <span>{child}</span>;
       }
+
       return child;
     });
 

@@ -13,6 +13,11 @@
   gap: 0.5rem;
   background-color: var(--color-brand-slate);
   padding: 0.75rem 1.25rem;
+  transition:
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .rkt-button:disabled {
@@ -42,7 +47,7 @@
 }
 
 /* Icon only button */
-.rkt-button:has(svg:only-child) {
+.rkt-button:has(svg:only-child):not(.rkt-button--icon) {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
@@ -91,4 +96,231 @@
 .rkt-button--secondary:focus-visible,
 .rkt-button[data-variant="secondary"]:focus-visible {
   box-shadow: inset 0 0 0 3px var(--color-brand-slate);
+}
+
+/* Tertiary variant */
+.rkt-button--tertiary,
+.rkt-button[data-variant="tertiary"] {
+  background-color: transparent;
+  color: var(--color-brand-slate);
+}
+
+.rkt-button--tertiary:hover:not(:disabled),
+.rkt-button[data-variant="tertiary"]:hover:not(:disabled) {
+  background-color: var(--color-hovered-secondary);
+}
+
+.rkt-button--tertiary:disabled,
+.rkt-button[data-variant="tertiary"]:disabled {
+  background-color: var(--color-disabled);
+  color: var(--color-disabled-fg);
+}
+
+/* Warning variant */
+.rkt-button--warning,
+.rkt-button[data-variant="warning"] {
+  background-color: var(--color-warning);
+  color: var(--color-warning-fg);
+}
+
+.rkt-button--warning:hover:not(:disabled),
+.rkt-button[data-variant="warning"]:hover:not(:disabled) {
+  background-color: var(--color-hovered-warning);
+}
+
+.rkt-button--warning:active:not(:disabled),
+.rkt-button[data-variant="warning"]:active:not(:disabled) {
+  background-color: var(--color-pressed-warning);
+}
+
+.rkt-button--warning:disabled,
+.rkt-button[data-variant="warning"]:disabled {
+  background-color: var(--color-disabled);
+  color: var(--color-disabled-fg);
+}
+
+.rkt-button:focus-visible {
+  box-shadow: inset 0 0 0 3px var(--color-warning-ring);
+}
+
+/* Warning outline variant */
+.rkt-button--warning-outline,
+.rkt-button[data-variant="warning-outline"] {
+  background-color: transparent;
+  color: var(--color-warning-fg);
+  box-shadow: inset 0 0 0 1.5px var(--color-warning-ring);
+}
+
+.rkt-button--warning-outline:hover:not(:disabled),
+.rkt-button[data-variant="warning-outline"]:hover:not(:disabled) {
+  background-color: var(--color-hovered-warning);
+}
+
+.rkt-button--warning-outline:active:not(:disabled),
+.rkt-button[data-variant="warning-outline"]:active:not(:disabled) {
+  background-color: var(--color-pressed-warning);
+}
+
+.rkt-button--warning-outline:disabled,
+.rkt-button[data-variant="warning-outline"]:disabled {
+  background-color: var(--color-disabled);
+  color: var(--color-disabled-fg);
+  box-shadow: inset 0 0 0 1.5px var(--color-disabled-fg);
+}
+
+.rkt-button--warning-outline:focus-visible,
+.rkt-button[data-variant="warning-outline"]:focus-visible {
+  box-shadow: inset 0 0 0 3px var(--color-warning-ring);
+}
+
+/* Icon variant */
+.rkt-button--icon,
+.rkt-button[data-variant="icon"] {
+  position: relative;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    background-color: var(--color-hovered-secondary);
+    border-radius: 50%;
+    transition:
+      width 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      height 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  & > svg {
+    z-index: 2;
+    color: var(--color-brand-slate);
+  }
+}
+
+.rkt-button--icon.rkt-button--small,
+.rkt-button[data-variant="icon"][data-size="sm"] {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: unset;
+
+  &::after {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+.rkt-button--icon.rkt-button--small:hover:not(:disabled):not(
+    .rkt-button--icon-transparent
+  ),
+.rkt-button[data-variant="icon"][data-size="sm"]:hover:not(:disabled):not(
+    .rkt-button[data-variant="icon-transparent"]
+  ) {
+  &::after {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.rkt-button--icon.rkt-button--medium,
+.rkt-button[data-variant="icon"][data-size="md"] {
+  width: 3rem;
+  height: 3rem;
+  padding: unset;
+
+  &::after {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+.rkt-button--icon.rkt-button--medium:hover:not(:disabled):not(
+    .rkt-button--icon-transparent
+  ),
+.rkt-button[data-variant="icon"][data-size="md"]:hover:not(:disabled):not(
+    .rkt-button[data-variant="icon-transparent"]
+  ) {
+  &::after {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+.rkt-button--icon.rkt-button--large,
+.rkt-button[data-variant="icon"][data-size="lg"] {
+  width: 3.75rem;
+  height: 3.75rem;
+  padding: unset;
+
+  &::after {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+}
+
+.rkt-button--icon.rkt-button--large:hover:not(:disabled):not(
+    .rkt-button--icon-transparent
+  ),
+.rkt-button[data-variant="icon"][data-size="lg"]:hover:not(:disabled):not(
+    .rkt-button[data-variant="icon-transparent"]
+  ) {
+  &::after {
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+}
+
+.rkt-button--icon:hover:not(:disabled),
+.rkt-button[data-variant="icon"]:hover:not(:disabled) {
+  background-color: transparent;
+}
+
+.rkt-button--icon:disabled {
+  &::after {
+    background-color: var(--color-disabled);
+  }
+
+  & > svg {
+    color: var(--color-disabled-fg);
+  }
+}
+
+.rkt-button--icon:active:not(:disabled) {
+  &::after {
+    background-color: var(--color-pressed-secondary);
+  }
+}
+
+.rkt-button--icon:focus-visible {
+  &::after {
+    box-shadow: inset 0 0 0 3px var(--color-brand-slate);
+  }
+}
+
+/* Icon transparent variant */
+.rkt-button--icon-transparent,
+.rkt-button[data-variant="icon-transparent"] {
+  background-color: transparent;
+
+  &::after {
+    background-color: transparent;
+  }
+}
+
+.rkt-button--icon-transparent:hover:not(:disabled),
+.rkt-button[data-variant="icon-transparent"]:hover:not(:disabled) {
+  background-color: transparent;
+
+  &::after {
+    background-color: var(--color-pressed-secondary);
+  }
+}
+
+.rkt-button--icon-transparent:active:not(:disabled),
+.rkt-button[data-variant="icon-transparent"]:active:not(:disabled) {
+  &::after {
+    background-color: var(--color-pressed-in-inputs);
+  }
 }
