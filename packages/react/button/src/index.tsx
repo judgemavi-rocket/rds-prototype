@@ -10,17 +10,25 @@ import {
   type ReactElement,
 } from "react";
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  size?: "lg" | "md";
-  variant?:
-    | "primary"
-    | "secondary"
-    | "tertiary"
-    | "warning"
-    | "warning-outline"
-    | "icon";
-  asChild?: boolean;
-}
+type ButtonVariants =
+  | {
+      size?: "lg" | "md";
+      variant?:
+        | "primary"
+        | "secondary"
+        | "tertiary"
+        | "warning"
+        | "warning-outline";
+    }
+  | {
+      size?: "lg" | "md" | "sm";
+      variant: "icon" | "icon-transparent";
+    };
+
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
+  ButtonVariants & {
+    asChild?: boolean;
+  };
 
 export const Button = forwardRef<ComponentRef<"button">, ButtonProps>(
   (
@@ -36,6 +44,8 @@ export const Button = forwardRef<ComponentRef<"button">, ButtonProps>(
   ) => {
     const buttonClassName = mergeClasses(
       "rkt-button",
+      size === "sm" && "rkt-button--small",
+      size === "md" && "rkt-button--medium",
       size === "lg" && "rkt-button--large",
       variant === "secondary" && "rkt-button--secondary",
       variant === "tertiary" && "rkt-button--tertiary",
