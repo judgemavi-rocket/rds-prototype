@@ -43,15 +43,24 @@ export const Button = forwardRef<ComponentRef<"button">, ButtonProps>(
     ref
   ) => {
     const buttonClassName = mergeClasses(
+      /* Base */
       "rkt-button",
+
+      /* Size */
       size === "sm" && "rkt-button--small",
       size === "md" && "rkt-button--medium",
       size === "lg" && "rkt-button--large",
+
+      /* Variant */
       variant === "secondary" && "rkt-button--secondary",
       variant === "tertiary" && "rkt-button--tertiary",
       variant === "warning" && "rkt-button--warning",
       variant === "warning-outline" && "rkt-button--warning-outline",
       variant === "icon" && "rkt-button--icon",
+      variant === "icon-transparent" &&
+        "rkt-button--icon rkt-button--icon-transparent",
+
+      /* Custom */
       className
     );
 
