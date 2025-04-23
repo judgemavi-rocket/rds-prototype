@@ -1,0 +1,53 @@
+---
+title: Badge
+description: Displays a badge
+---
+
+import { Code } from "@astrojs/starlight/components";
+import CodePreview from "/src/components/ui/codePreview.astro";
+
+import { Standalone } from "/src/components/react/badge/standalone";
+import { WithButton } from "/src/components/react/badge/with-button";
+import { WithIcon } from "/src/components/react/badge/with-icon";
+import { WithLabel } from "/src/components/react/badge/with-label";
+
+import { ColorVariants } from "/src/components/react/badge/color-variants";
+import colorVariantsSrc from "/src/components/react/badge/color-variants.tsx?raw";
+import standaloneSrc from "/src/components/react/badge/standalone.tsx?raw";
+import withButtonSrc from "/src/components/react/badge/with-button.tsx?raw";
+import withIconSrc from "/src/components/react/badge/with-icon.tsx?raw";
+import withLabelSrc from "/src/components/react/badge/with-label.tsx?raw";
+
+<CodePreview code={standaloneSrc} lang="tsx">
+    <Standalone/>
+</CodePreview>
+
+## Installation
+
+<Code code={`npm install @rds/react-badge`} frame="terminal" lang="sh" />
+
+## With Button
+<CodePreview code={withButtonSrc} lang="tsx">
+    <WithButton/>
+</CodePreview>
+
+## With Icon
+<CodePreview code={withIconSrc} lang="tsx">
+    <WithIcon/>
+</CodePreview>
+
+## With Label
+<CodePreview code={withLabelSrc} lang="tsx">
+    <WithLabel/>
+</CodePreview>
+
+## Standalone
+<CodePreview code={standaloneSrc} lang="tsx">
+    <Standalone/>
+</CodePreview>
+
+## Color variants
+
+<CodePreview code={colorVariantsSrc} lang="tsx">
+    <ColorVariants/>
+</CodePreview>

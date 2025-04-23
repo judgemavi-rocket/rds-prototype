@@ -68,6 +68,9 @@ importers:
       '@rds/angular-dialog':
         specifier: workspace:*
         version: link:../../packages/angular/dialog
+      '@rds/react-badge':
+        specifier: workspace:*
+        version: link:../../packages/react/badge
       '@rds/react-button':
         specifier: workspace:*
         version: link:../../packages/react/button
@@ -379,13 +382,53 @@ importers:
         specifier: ^1.0.1
         version: 1.6.1(@types/node@22.14.1)
 
+  packages/react/badge:
+    dependencies:
+      '@rds/styles':
+        specifier: workspace:*
+        version: link:../../shared/styles
+      react:
+        specifier: ^19.1.0
+        version: 19.1.0
+    devDependencies:
+      '@rds/eslint-config':
+        specifier: workspace:*
+        version: link:../../shared/eslint-config
+      '@rds/typescript-config':
+        specifier: workspace:*
+        version: link:../../shared/typescript-config
+      '@rds/utils':
+        specifier: workspace:*
+        version: link:../../shared/utils
+      '@types/eslint':
+        specifier: ^9.6.1
+        version: 9.6.1
+      '@types/node':
+        specifier: ^22.10.1
+        version: 22.14.1
+      '@types/react':
+        specifier: ^19.1.0
+        version: 19.1.2
+      '@types/react-dom':
+        specifier: ^19.1.0
+        version: 19.1.2(@types/react@19.1.2)
+      eslint:
+        specifier: ^9.16.0
+        version: 9.24.0
+      tsup:
+        specifier: ^8.3.5
+        version: 8.4.0(typescript@5.8.3)
+      typescript:
+        specifier: ^5.7.2
+        version: 5.8.3
+
   packages/react/button:
     dependencies:
       '@rds/react-slot':
         specifier: workspace:*
         version: link:../slot
       '@rds/styles':
-        specifier: '*'
+        specifier: workspace:*
         version: link:../../shared/styles
       react:
         specifier: ^19.1.0

@@ -1,5 +1,5 @@
 {
-  "name": "@rds/react-button",
+  "name": "@rds/react-badge",
   "version": "1.0.0",
   "exports": {
     ".": {
@@ -29,7 +29,7 @@
   },
   "keywords": [
     "react",
-    "button",
+    "badge",
     "accessibility",
     "typescript",
     "headless",
@@ -38,7 +38,6 @@
   ],
   "dependencies": {
     "@rds/styles": "workspace:*",
-    "@rds/react-slot": "workspace:*",
     "react": "^19.1.0"
   }
 }
