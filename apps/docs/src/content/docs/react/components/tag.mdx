@@ -1,0 +1,34 @@
+---
+title: Tag
+description: Displays a tag
+---
+
+import { Code } from "@astrojs/starlight/components";
+import CodePreview from "/src/components/ui/codePreview.astro";
+
+import { ColorVariants } from "/src/components/react/tag/color-variants";
+import { Default } from "/src/components/react/tag/default";
+import { WithIcon } from "/src/components/react/tag/with-icon";
+
+import colorVariantsSrc from "/src/components/react/tag/color-variants.tsx?raw";
+import defaultSrc from "/src/components/react/tag/default.tsx?raw";
+import withIconSrc from "/src/components/react/tag/with-icon.tsx?raw";
+
+<CodePreview code={defaultSrc} lang="tsx">
+    <Default/>
+</CodePreview>
+
+## Installation
+
+<Code code={`npm install @rds/react-tag`} frame="terminal" lang="sh" />
+
+## With Icon
+<CodePreview code={withIconSrc} lang="tsx">
+    <WithIcon/>
+</CodePreview>
+
+## Color variants
+
+<CodePreview code={colorVariantsSrc} lang="tsx">
+    <ColorVariants/>
+</CodePreview>

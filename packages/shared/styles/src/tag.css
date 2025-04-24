@@ -1,0 +1,58 @@
+@import "./base.css";
+
+.rkt-tag {
+  align-items: center;
+  background-color: var(--color-hovered-secondary);
+  border-radius: 0.5rem;
+  color: var(--color-brand-slate);
+  display: inline-flex;
+  font-size: 0.875rem;
+  font-weight: 500;
+  justify-content: center;
+  min-width: 3rem;
+  padding: 0.125rem 0.625rem;
+  width: fit-content;
+  gap: 0.25rem;
+  line-height: 1.5rem;
+
+  & > svg {
+    height: 1rem;
+    width: 1rem;
+  }
+}
+
+.rkt-tag--info,
+.rkt-tag[data-variant="info"] {
+  background-color: var(--color-info-light);
+  color: var(--color-info);
+}
+
+.rkt-tag--primary,
+.rkt-tag[data-variant="primary"] {
+  background-color: var(--color-brand-slate);
+  color: var(--color-white);
+}
+
+.rkt-tag--secondary,
+.rkt-tag[data-variant="secondary"] {
+  background-color: var(--color-active-primary);
+  color: var(--color-white);
+}
+
+.rkt-tag--success,
+.rkt-tag[data-variant="success"] {
+  background-color: var(--color-success-light);
+  color: var(--color-success);
+}
+
+.rkt-tag--unavailable,
+.rkt-tag[data-variant="unavailable"] {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.rkt-tag--warning,
+.rkt-tag[data-variant="warning"] {
+  background-color: var(--color-warning-light);
+  color: var(--color-warning-dark);
+}
