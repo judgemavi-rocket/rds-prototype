@@ -1,16 +1,5 @@
 @import "./base.css";
 
-:root {
-  --color-bg-badge-info: #4156a1;
-  --color-bg-badge-info-light: #edf1ff;
-
-  --color-bg-badge-success: #0b5e36;
-  --color-bg-badge-success-light: #e9f7f1;
-
-  --color-bg-badge-warning: #865404;
-  --color-bg-badge-warning-light: #fff5e4;
-}
-
 .rkt-badge__wrapper {
   position: relative;
   width: fit-content;
@@ -56,43 +45,46 @@
 .rkt-badge__content--info,
 .rkt-badge[data-variant="info"],
 .rkt-badge__content[data-variant="info"] {
-  background-color: var(--color-bg-badge-info);
+  background-color: var(--color-info);
+  color: var(--color-info-light);
 }
 
 .rkt-badge--info-light,
 .rkt-badge__content--info-light,
 .rkt-badge[data-variant="info-light"],
 .rkt-badge__content[data-variant="info-light"] {
-  background-color: var(--color-bg-badge-info-light);
-  color: var(--color-bg-badge-info);
+  background-color: var(--color-info-light);
+  color: var(--color-info-dark);
 }
 
 .rkt-badge--success,
 .rkt-badge__content--success,
 .rkt-badge[data-variant="success"],
 .rkt-badge__content[data-variant="success"] {
-  background-color: var(--color-bg-badge-success);
+  background-color: var(--color-success);
+  color: var(--color-success-light);
 }
 
 .rkt-badge--success-light,
 .rkt-badge__content--success-light,
 .rkt-badge[data-variant="success-light"],
 .rkt-badge__content[data-variant="success-light"] {
-  background-color: var(--color-bg-badge-success-light);
-  color: var(--color-bg-badge-success);
+  background-color: var(--color-success-light);
+  color: var(--color-success);
 }
 
 .rkt-badge--warning,
 .rkt-badge__content--warning,
 .rkt-badge[data-variant="warning"],
 .rkt-badge__content[data-variant="warning"] {
-  background-color: var(--color-bg-badge-warning);
+  background-color: var(--color-warning-dark);
+  color: var(--color-warning-light);
 }
 
 .rkt-badge--warning-light,
 .rkt-badge__content--warning-light,
 .rkt-badge[data-variant="warning-light"],
 .rkt-badge__content[data-variant="warning-light"] {
-  background-color: var(--color-bg-badge-warning-light);
-  color: var(--color-bg-badge-warning);
+  background-color: var(--color-warning-light);
+  color: var(--color-warning-dark);
 }

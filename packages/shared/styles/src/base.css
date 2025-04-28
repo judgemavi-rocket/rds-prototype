@@ -13,10 +13,12 @@
   --shadow-dialog: 0 10px 30px 0 #0000001f;
   --radius-dialog: 1.5rem;
   --color-secondary: #545454;
-  --color-warning: #ffbf51;
-  --color-hovered-warning: #fff5e4;
-  --color-pressed-warning: #ffe5b8;
-  --color-warning-fg: #6c4103;
-  --color-warning-ring: #492800;
   --color-pressed-in-inputs: #c1c1c1;
+  --color-info: #4156a1;
+  --color-info-dark: #2a396f;
+  --color-info-light: #edf1ff;
+  --color-success: #0b5e36;
+  --color-success-light: #eff7f3;
+  --color-warning-dark: #865404;
+  --color-warning-light: #fff5e4;
 }

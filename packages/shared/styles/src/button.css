@@ -1,5 +1,13 @@
 @import "./base.css";
 
+:root {
+  --color-button-warning: #ffbf51;
+  --color-button-warning-fg: #6c4103;
+  --color-button-warning-hovered: #fff5e4;
+  --color-button-warning-pressed: #ffe5b8;
+  --color-button-warning-ring: #492800;
+}
+
 .rkt-button {
   width: fit-content;
   border-radius: 9999px;
@@ -119,18 +127,18 @@
 /* Warning variant */
 .rkt-button--warning,
 .rkt-button[data-variant="warning"] {
-  background-color: var(--color-warning);
-  color: var(--color-warning-fg);
+  background-color: var(--color-button-warning);
+  color: var(--color-button-warning-fg);
 }
 
 .rkt-button--warning:hover:not(:disabled),
 .rkt-button[data-variant="warning"]:hover:not(:disabled) {
-  background-color: var(--color-hovered-warning);
+  background-color: var(--color-button-warning-hovered);
 }
 
 .rkt-button--warning:active:not(:disabled),
 .rkt-button[data-variant="warning"]:active:not(:disabled) {
-  background-color: var(--color-pressed-warning);
+  background-color: var(--color-button-warning-pressed);
 }
 
 .rkt-button--warning:disabled,
@@ -140,25 +148,25 @@
 }
 
 .rkt-button:focus-visible {
-  box-shadow: inset 0 0 0 3px var(--color-warning-ring);
+  box-shadow: inset 0 0 0 3px var(--color-button-warning-ring);
 }
 
 /* Warning outline variant */
 .rkt-button--warning-outline,
 .rkt-button[data-variant="warning-outline"] {
   background-color: transparent;
-  color: var(--color-warning-fg);
-  box-shadow: inset 0 0 0 1.5px var(--color-warning-ring);
+  color: var(--color-button-warning-fg);
+  box-shadow: inset 0 0 0 1.5px var(--color-button-warning-ring);
 }
 
 .rkt-button--warning-outline:hover:not(:disabled),
 .rkt-button[data-variant="warning-outline"]:hover:not(:disabled) {
-  background-color: var(--color-hovered-warning);
+  background-color: var(--color-button-warning-hovered);
 }
 
 .rkt-button--warning-outline:active:not(:disabled),
 .rkt-button[data-variant="warning-outline"]:active:not(:disabled) {
-  background-color: var(--color-pressed-warning);
+  background-color: var(--color-button-warning-pressed);
 }
 
 .rkt-button--warning-outline:disabled,
@@ -170,7 +178,7 @@
 
 .rkt-button--warning-outline:focus-visible,
 .rkt-button[data-variant="warning-outline"]:focus-visible {
-  box-shadow: inset 0 0 0 3px var(--color-warning-ring);
+  box-shadow: inset 0 0 0 3px var(--color-button-warning-ring);
 }
 
 /* Icon variant */

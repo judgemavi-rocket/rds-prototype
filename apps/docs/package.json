@@ -30,6 +30,7 @@
     "@rds/react-button": "workspace:*",
     "@rds/react-dialog": "workspace:*",
     "@rds/react-dropdown-menu": "workspace:*",
+    "@rds/react-tag": "workspace:*",
     "@rds/styles": "workspace:*",
     "@tailwindcss/vite": "^4.1.1",
     "astro": "^5.5.3",
